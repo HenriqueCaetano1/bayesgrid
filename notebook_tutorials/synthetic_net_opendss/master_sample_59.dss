@@ -1,0 +1,491 @@
+clear
+new circuit.synthetic_net basekv=157.6864406779661 pu=1.0 phases=3
+edit Vsource.source bus1=bus_68.1.2.3
+
+!---------------- LINES ----------------
+
+new linecode.LCode_0 nphases=1 rmatrix=[0.695342] xmatrix=[1.242115] units=km
+new line.line_0 bus1=bus_0.3 bus2=bus_1.3 linecode=LCode_0 length=1.0 units=km
+new linecode.LCode_1 nphases=1 rmatrix=[0.936345] xmatrix=[1.364104] units=km
+new line.line_1 bus1=bus_0.3 bus2=bus_2.3 linecode=LCode_1 length=1.0 units=km
+new linecode.LCode_2 nphases=1 rmatrix=[0.616139] xmatrix=[1.251944] units=km
+new line.line_2 bus1=bus_3.3 bus2=bus_4.3 linecode=LCode_2 length=1.0 units=km
+new linecode.LCode_3 nphases=1 rmatrix=[0.768736] xmatrix=[1.692525] units=km
+new line.line_3 bus1=bus_2.3 bus2=bus_4.3 linecode=LCode_3 length=1.0 units=km
+new linecode.LCode_4 nphases=1 rmatrix=[0.700083] xmatrix=[1.242115] units=km
+new line.line_4 bus1=bus_4.3 bus2=bus_5.3 linecode=LCode_4 length=1.0 units=km
+new linecode.LCode_5 nphases=1 rmatrix=[0.546043] xmatrix=[1.275488] units=km
+new line.line_5 bus1=bus_5.3 bus2=bus_6.3 linecode=LCode_5 length=1.0 units=km
+new linecode.LCode_6 nphases=1 rmatrix=[1.138536] xmatrix=[1.348685] units=km
+new line.line_6 bus1=bus_7.3 bus2=bus_8.3 linecode=LCode_6 length=1.0 units=km
+new linecode.LCode_7 nphases=1 rmatrix=[0.507288] xmatrix=[1.242115] units=km
+new line.line_7 bus1=bus_8.3 bus2=bus_9.3 linecode=LCode_7 length=1.0 units=km
+new linecode.LCode_8 nphases=1 rmatrix=[0.850705] xmatrix=[1.242115] units=km
+new line.line_8 bus1=bus_3.3 bus2=bus_10.3 linecode=LCode_8 length=1.0 units=km
+new linecode.LCode_9 nphases=1 rmatrix=[0.513387] xmatrix=[1.364103] units=km
+new line.line_9 bus1=bus_4.3 bus2=bus_10.3 linecode=LCode_9 length=1.0 units=km
+new linecode.LCode_10 nphases=1 rmatrix=[0.850283] xmatrix=[1.321188] units=km
+new line.line_10 bus1=bus_10.3 bus2=bus_11.3 linecode=LCode_10 length=1.0 units=km
+new linecode.LCode_11 nphases=1 rmatrix=[0.857034] xmatrix=[1.428167] units=km
+new line.line_11 bus1=bus_1.3 bus2=bus_11.3 linecode=LCode_11 length=1.0 units=km
+new linecode.LCode_12 nphases=1 rmatrix=[0.946252] xmatrix=[1.600308] units=km
+new line.line_12 bus1=bus_2.3 bus2=bus_11.3 linecode=LCode_12 length=1.0 units=km
+new linecode.LCode_13 nphases=1 rmatrix=[0.931759] xmatrix=[1.438696] units=km
+new line.line_13 bus1=bus_6.3 bus2=bus_11.3 linecode=LCode_13 length=1.0 units=km
+new linecode.LCode_16 nphases=1 rmatrix=[0.634125] xmatrix=[1.326948] units=km
+new line.line_16 bus1=bus_12.1 bus2=bus_14.1 linecode=LCode_16 length=1.0 units=km
+new linecode.LCode_17 nphases=1 rmatrix=[0.838418] xmatrix=[1.457600] units=km
+new line.line_17 bus1=bus_13.1 bus2=bus_14.1 linecode=LCode_17 length=1.0 units=km
+new linecode.LCode_18 nphases=1 rmatrix=[0.952246] xmatrix=[1.242115] units=km
+new line.line_18 bus1=bus_11.3 bus2=bus_15.3 linecode=LCode_18 length=1.0 units=km
+new linecode.LCode_20 nphases=1 rmatrix=[0.676498] xmatrix=[1.311095] units=km
+new line.line_20 bus1=bus_15.3 bus2=bus_16.3 linecode=LCode_20 length=1.0 units=km
+new linecode.LCode_21 nphases=1 rmatrix=[0.691077] xmatrix=[1.444736] units=km
+new line.line_21 bus1=bus_16.3 bus2=bus_17.3 linecode=LCode_21 length=1.0 units=km
+new linecode.LCode_24 nphases=1 rmatrix=[0.585907] xmatrix=[1.274439] units=km
+new line.line_24 bus1=bus_14.1 bus2=bus_18.1 linecode=LCode_24 length=1.0 units=km
+new linecode.LCode_25 nphases=1 rmatrix=[0.986357] xmatrix=[1.333007] units=km
+new line.line_25 bus1=bus_19.3 bus2=bus_20.3 linecode=LCode_25 length=1.0 units=km
+new linecode.LCode_26 nphases=1 rmatrix=[0.367476] xmatrix=[1.255785] units=km
+new line.line_26 bus1=bus_20.3 bus2=bus_21.3 linecode=LCode_26 length=1.0 units=km
+new linecode.LCode_27 nphases=1 rmatrix=[0.521944] xmatrix=[1.307127] units=km
+new line.line_27 bus1=bus_21.3 bus2=bus_22.3 linecode=LCode_27 length=1.0 units=km
+new linecode.LCode_28 nphases=1 rmatrix=[1.244658] xmatrix=[1.308790] units=km
+new line.line_28 bus1=bus_22.3 bus2=bus_23.3 linecode=LCode_28 length=1.0 units=km
+new linecode.LCode_29 nphases=1 rmatrix=[0.277188] xmatrix=[1.242115] units=km
+new line.line_29 bus1=bus_22.3 bus2=bus_24.3 linecode=LCode_29 length=1.0 units=km
+new linecode.LCode_30 nphases=1 rmatrix=[0.745126] xmatrix=[1.242115] units=km
+new line.line_30 bus1=bus_24.3 bus2=bus_26.3 linecode=LCode_30 length=1.0 units=km
+new linecode.LCode_31 nphases=1 rmatrix=[0.764454] xmatrix=[1.242115] units=km
+new line.line_31 bus1=bus_26.3 bus2=bus_27.3 linecode=LCode_31 length=1.0 units=km
+new linecode.LCode_32 nphases=1 rmatrix=[0.996475] xmatrix=[1.242115] units=km
+new line.line_32 bus1=bus_27.3 bus2=bus_28.3 linecode=LCode_32 length=1.0 units=km
+new linecode.LCode_33 nphases=1 rmatrix=[0.891708] xmatrix=[1.367548] units=km
+new line.line_33 bus1=bus_7.3 bus2=bus_29.3 linecode=LCode_33 length=1.0 units=km
+new linecode.LCode_34 nphases=1 rmatrix=[0.751246] xmatrix=[1.262837] units=km
+new line.line_34 bus1=bus_25.3 bus2=bus_29.3 linecode=LCode_34 length=1.0 units=km
+new linecode.LCode_35 nphases=1 rmatrix=[0.380307] xmatrix=[1.381016] units=km
+new line.line_35 bus1=bus_16.3 bus2=bus_30.3 linecode=LCode_35 length=1.0 units=km
+new linecode.LCode_36 nphases=1 rmatrix=[0.919641] xmatrix=[1.492521] units=km
+new line.line_36 bus1=bus_28.3 bus2=bus_30.3 linecode=LCode_36 length=1.0 units=km
+new linecode.LCode_37 nphases=1 rmatrix=[0.894974] xmatrix=[1.242115] units=km
+new line.line_37 bus1=bus_22.3 bus2=bus_31.3 linecode=LCode_37 length=1.0 units=km
+new linecode.LCode_38 nphases=1 rmatrix=[0.792032] xmatrix=[1.242115] units=km
+new line.line_38 bus1=bus_30.3 bus2=bus_31.3 linecode=LCode_38 length=1.0 units=km
+new linecode.LCode_39 nphases=1 rmatrix=[0.845533] xmatrix=[1.242115] units=km
+new line.line_39 bus1=bus_26.3 bus2=bus_31.3 linecode=LCode_39 length=1.0 units=km
+new linecode.LCode_40 nphases=1 rmatrix=[0.984961] xmatrix=[1.242115] units=km
+new line.line_40 bus1=bus_14.1 bus2=bus_32.1 linecode=LCode_40 length=1.0 units=km
+new linecode.LCode_41 nphases=1 rmatrix=[0.567317] xmatrix=[1.453730] units=km
+new line.line_41 bus1=bus_18.1 bus2=bus_33.1 linecode=LCode_41 length=1.0 units=km
+new linecode.LCode_42 nphases=1 rmatrix=[0.874964] xmatrix=[1.242115] units=km
+new line.line_42 bus1=bus_34.1 bus2=bus_35.1 linecode=LCode_42 length=1.0 units=km
+new linecode.LCode_43 nphases=1 rmatrix=[0.583891] xmatrix=[1.242115] units=km
+new line.line_43 bus1=bus_34.1 bus2=bus_36.1 linecode=LCode_43 length=1.0 units=km
+new linecode.LCode_44 nphases=1 rmatrix=[0.899100] xmatrix=[1.327859] units=km
+new line.line_44 bus1=bus_32.1 bus2=bus_36.1 linecode=LCode_44 length=1.0 units=km
+new linecode.LCode_45 nphases=1 rmatrix=[1.008175] xmatrix=[1.468184] units=km
+new line.line_45 bus1=bus_33.1 bus2=bus_35.1 linecode=LCode_45 length=1.0 units=km
+new linecode.LCode_46 nphases=1 rmatrix=[0.221782] xmatrix=[1.242115] units=km
+new line.line_46 bus1=bus_33.1 bus2=bus_36.1 linecode=LCode_46 length=1.0 units=km
+new linecode.LCode_47 nphases=1 rmatrix=[0.615121] xmatrix=[1.242115] units=km
+new line.line_47 bus1=bus_36.1 bus2=bus_38.1 linecode=LCode_47 length=1.0 units=km
+new linecode.LCode_48 nphases=1 rmatrix=[0.667822] xmatrix=[1.269823] units=km
+new line.line_48 bus1=bus_36.1 bus2=bus_39.1 linecode=LCode_48 length=1.0 units=km
+new linecode.LCode_49 nphases=1 rmatrix=[1.052779] xmatrix=[1.494194] units=km
+new line.line_49 bus1=bus_29.3 bus2=bus_37.3 linecode=LCode_49 length=1.0 units=km
+new linecode.LCode_50 nphases=1 rmatrix=[0.741992] xmatrix=[1.242115] units=km
+new line.line_50 bus1=bus_38.1 bus2=bus_39.1 linecode=LCode_50 length=1.0 units=km
+new linecode.LCode_51 nphases=1 rmatrix=[0.281831] xmatrix=[1.242115] units=km
+new line.line_51 bus1=bus_39.1 bus2=bus_40.1 linecode=LCode_51 length=1.0 units=km
+new linecode.LCode_52 nphases=1 rmatrix=[0.430627] xmatrix=[1.566112] units=km
+new line.line_52 bus1=bus_39.1 bus2=bus_41.1 linecode=LCode_52 length=1.0 units=km
+new linecode.LCode_53 nphases=1 rmatrix=[1.006541] xmatrix=[1.287678] units=km
+new line.line_53 bus1=bus_40.1 bus2=bus_41.1 linecode=LCode_53 length=1.0 units=km
+new linecode.LCode_54 nphases=1 rmatrix=[0.441340] xmatrix=[1.242115] units=km
+new line.line_54 bus1=bus_42.1 bus2=bus_43.1 linecode=LCode_54 length=1.0 units=km
+new linecode.LCode_55 nphases=1 rmatrix=[0.437874] xmatrix=[1.823463] units=km
+new line.line_55 bus1=bus_33.1 bus2=bus_42.1 linecode=LCode_55 length=1.0 units=km
+new linecode.LCode_56 nphases=1 rmatrix=[0.698301] xmatrix=[1.242777] units=km
+new line.line_56 bus1=bus_43.1 bus2=bus_44.1 linecode=LCode_56 length=1.0 units=km
+new linecode.LCode_57 nphases=1 rmatrix=[1.269334] xmatrix=[1.287140] units=km
+new line.line_57 bus1=bus_44.1 bus2=bus_45.1 linecode=LCode_57 length=1.0 units=km
+new linecode.LCode_58 nphases=1 rmatrix=[0.702887] xmatrix=[1.295409] units=km
+new line.line_58 bus1=bus_45.1 bus2=bus_46.1 linecode=LCode_58 length=1.0 units=km
+new linecode.LCode_59 nphases=1 rmatrix=[0.596634] xmatrix=[1.242115] units=km
+new line.line_59 bus1=bus_45.1 bus2=bus_47.1 linecode=LCode_59 length=1.0 units=km
+new linecode.LCode_60 nphases=1 rmatrix=[0.625109] xmatrix=[1.425312] units=km
+new line.line_60 bus1=bus_46.1 bus2=bus_48.1 linecode=LCode_60 length=1.0 units=km
+new linecode.LCode_61 nphases=1 rmatrix=[0.225157] xmatrix=[1.284942] units=km
+new line.line_61 bus1=bus_41.1 bus2=bus_48.1 linecode=LCode_61 length=1.0 units=km
+new linecode.LCode_62 nphases=1 rmatrix=[0.846188] xmatrix=[1.242115] units=km
+new line.line_62 bus1=bus_41.1 bus2=bus_48.1 linecode=LCode_62 length=1.0 units=km
+new linecode.LCode_63 nphases=1 rmatrix=[0.926878] xmatrix=[1.261031] units=km
+new line.line_63 bus1=bus_44.1 bus2=bus_48.1 linecode=LCode_63 length=1.0 units=km
+new linecode.LCode_64 nphases=1 rmatrix=[0.273954] xmatrix=[1.457982] units=km
+new line.line_64 bus1=bus_47.1 bus2=bus_48.1 linecode=LCode_64 length=1.0 units=km
+new linecode.LCode_65 nphases=1 rmatrix=[0.967287] xmatrix=[1.242115] units=km
+new line.line_65 bus1=bus_48.1 bus2=bus_49.1 linecode=LCode_65 length=1.0 units=km
+new linecode.LCode_66 nphases=1 rmatrix=[0.813257] xmatrix=[1.242115] units=km
+new line.line_66 bus1=bus_48.1 bus2=bus_50.1 linecode=LCode_66 length=1.0 units=km
+new linecode.LCode_67 nphases=1 rmatrix=[0.966281] xmatrix=[1.244292] units=km
+new line.line_67 bus1=bus_50.1 bus2=bus_51.1 linecode=LCode_67 length=1.0 units=km
+new linecode.LCode_68 nphases=1 rmatrix=[0.266943] xmatrix=[1.340365] units=km
+new line.line_68 bus1=bus_51.1 bus2=bus_52.1 linecode=LCode_68 length=1.0 units=km
+new linecode.LCode_69 nphases=1 rmatrix=[0.881232] xmatrix=[1.242115] units=km
+new line.line_69 bus1=bus_52.1 bus2=bus_53.1 linecode=LCode_69 length=1.0 units=km
+new linecode.LCode_70 nphases=1 rmatrix=[0.472275] xmatrix=[1.242115] units=km
+new line.line_70 bus1=bus_48.1 bus2=bus_53.1 linecode=LCode_70 length=1.0 units=km
+new linecode.LCode_71 nphases=1 rmatrix=[0.740430] xmatrix=[1.523498] units=km
+new line.line_71 bus1=bus_48.1 bus2=bus_53.1 linecode=LCode_71 length=1.0 units=km
+new linecode.LCode_72 nphases=1 rmatrix=[1.073561] xmatrix=[1.359663] units=km
+new line.line_72 bus1=bus_53.1 bus2=bus_54.1 linecode=LCode_72 length=1.0 units=km
+new linecode.LCode_73 nphases=1 rmatrix=[1.011655] xmatrix=[1.396140] units=km
+new line.line_73 bus1=bus_53.1 bus2=bus_55.1 linecode=LCode_73 length=1.0 units=km
+new linecode.LCode_74 nphases=1 rmatrix=[0.315314] xmatrix=[1.242115] units=km
+new line.line_74 bus1=bus_54.1 bus2=bus_55.1 linecode=LCode_74 length=1.0 units=km
+new linecode.LCode_75 nphases=1 rmatrix=[1.318815] xmatrix=[1.349077] units=km
+new line.line_75 bus1=bus_55.1 bus2=bus_56.1 linecode=LCode_75 length=1.0 units=km
+new linecode.LCode_76 nphases=1 rmatrix=[0.148939] xmatrix=[1.311298] units=km
+new line.line_76 bus1=bus_49.1 bus2=bus_56.1 linecode=LCode_76 length=1.0 units=km
+new linecode.LCode_77 nphases=1 rmatrix=[0.691519] xmatrix=[1.242115] units=km
+new line.line_77 bus1=bus_55.1 bus2=bus_57.1 linecode=LCode_77 length=1.0 units=km
+new linecode.LCode_78 nphases=1 rmatrix=[0.866625] xmatrix=[1.550705] units=km
+new line.line_78 bus1=bus_50.1 bus2=bus_57.1 linecode=LCode_78 length=1.0 units=km
+new linecode.LCode_79 nphases=1 rmatrix=[0.661960] xmatrix=[1.388961] units=km
+new line.line_79 bus1=bus_53.1 bus2=bus_58.1 linecode=LCode_79 length=1.0 units=km
+new linecode.LCode_80 nphases=1 rmatrix=[1.163118] xmatrix=[1.242115] units=km
+new line.line_80 bus1=bus_55.1 bus2=bus_58.1 linecode=LCode_80 length=1.0 units=km
+new linecode.LCode_81 nphases=1 rmatrix=[0.151589] xmatrix=[1.511617] units=km
+new line.line_81 bus1=bus_55.1 bus2=bus_58.1 linecode=LCode_81 length=1.0 units=km
+new linecode.LCode_82 nphases=1 rmatrix=[0.607077] xmatrix=[1.288217] units=km
+new line.line_82 bus1=bus_54.1 bus2=bus_58.1 linecode=LCode_82 length=1.0 units=km
+new linecode.LCode_83 nphases=1 rmatrix=[0.604959] xmatrix=[1.242115] units=km
+new line.line_83 bus1=bus_58.1 bus2=bus_59.1 linecode=LCode_83 length=1.0 units=km
+new linecode.LCode_84 nphases=1 rmatrix=[1.041573] xmatrix=[1.396628] units=km
+new line.line_84 bus1=bus_58.1 bus2=bus_60.1 linecode=LCode_84 length=1.0 units=km
+new linecode.LCode_85 nphases=1 rmatrix=[0.865009] xmatrix=[1.502286] units=km
+new line.line_85 bus1=bus_59.1 bus2=bus_60.1 linecode=LCode_85 length=1.0 units=km
+new linecode.LCode_86 nphases=1 rmatrix=[1.274098] xmatrix=[1.325419] units=km
+new line.line_86 bus1=bus_59.1 bus2=bus_61.1 linecode=LCode_86 length=1.0 units=km
+new linecode.LCode_87 nphases=1 rmatrix=[0.564018] xmatrix=[1.308183] units=km
+new line.line_87 bus1=bus_60.1 bus2=bus_61.1 linecode=LCode_87 length=1.0 units=km
+new linecode.LCode_88 nphases=1 rmatrix=[1.372712] xmatrix=[1.264352] units=km
+new line.line_88 bus1=bus_62.3 bus2=bus_63.3 linecode=LCode_88 length=1.0 units=km
+new linecode.LCode_89 nphases=1 rmatrix=[0.907890] xmatrix=[1.242115] units=km
+new line.line_89 bus1=bus_37.3 bus2=bus_64.3 linecode=LCode_89 length=1.0 units=km
+new linecode.LCode_90 nphases=1 rmatrix=[0.611761] xmatrix=[1.424513] units=km
+new line.line_90 bus1=bus_63.3 bus2=bus_64.3 linecode=LCode_90 length=1.0 units=km
+new linecode.LCode_91 nphases=1 rmatrix=[0.739977] xmatrix=[1.242115] units=km
+new line.line_91 bus1=bus_48.1 bus2=bus_65.1 linecode=LCode_91 length=1.0 units=km
+new linecode.LCode_92 nphases=1 rmatrix=[0.347101] xmatrix=[1.344177] units=km
+new line.line_92 bus1=bus_48.1 bus2=bus_65.1 linecode=LCode_92 length=1.0 units=km
+new linecode.LCode_93 nphases=1 rmatrix=[0.188185] xmatrix=[1.455351] units=km
+new line.line_93 bus1=bus_61.1 bus2=bus_65.1 linecode=LCode_93 length=1.0 units=km
+new linecode.LCode_94 nphases=1 rmatrix=[0.692638] xmatrix=[1.458562] units=km
+new line.line_94 bus1=bus_61.1 bus2=bus_66.1 linecode=LCode_94 length=1.0 units=km
+new linecode.LCode_95 nphases=1 rmatrix=[0.461185] xmatrix=[1.242115] units=km
+new line.line_95 bus1=bus_65.1 bus2=bus_66.1 linecode=LCode_95 length=1.0 units=km
+new linecode.LCode_96 nphases=1 rmatrix=[1.254023] xmatrix=[1.367354] units=km
+new line.line_96 bus1=bus_46.1 bus2=bus_68.1 linecode=LCode_96 length=1.0 units=km
+new linecode.LCode_97 nphases=1 rmatrix=[0.712524] xmatrix=[1.315093] units=km
+new line.line_97 bus1=bus_48.1 bus2=bus_68.1 linecode=LCode_97 length=1.0 units=km
+new linecode.LCode_98 nphases=3 rmatrix=[0.977829 | 0.059160 0.977829 | 0.059160 0.059160 0.977829] xmatrix=[1.242115 | 1.024695 1.242115 | 0.940589 1.024695 1.242115] units=km
+new line.line_98 bus1=bus_68.1.2.3 bus2=bus_69.1.2.3 linecode=LCode_98 length=1.0 units=km
+new linecode.LCode_99 nphases=2 rmatrix=[0.768580 | 0.059160 0.768580] xmatrix=[1.242115 | 1.024695 1.242115] units=km
+new line.line_99 bus1=bus_23.2.3 bus2=bus_69.2.3 linecode=LCode_99 length=1.0 units=km
+new linecode.LCode_100 nphases=2 rmatrix=[0.615090 | 0.059160 0.615090] xmatrix=[1.429454 | 1.024695 1.429454] units=km
+new line.line_100 bus1=bus_69.1.2 bus2=bus_70.1.2 linecode=LCode_100 length=1.0 units=km
+new linecode.LCode_101 nphases=2 rmatrix=[0.232925 | 0.059160 0.232925] xmatrix=[1.322659 | 1.024695 1.322659] units=km
+new line.line_101 bus1=bus_23.2.3 bus2=bus_71.2.3 linecode=LCode_101 length=1.0 units=km
+new linecode.LCode_102 nphases=1 rmatrix=[0.556487] xmatrix=[1.242115] units=km
+new line.line_102 bus1=bus_70.2 bus2=bus_71.2 linecode=LCode_102 length=1.0 units=km
+new linecode.LCode_103 nphases=2 rmatrix=[1.134427 | 0.059160 1.134427] xmatrix=[1.454726 | 1.024695 1.454726] units=km
+new line.line_103 bus1=bus_70.1.2 bus2=bus_72.1.2 linecode=LCode_103 length=1.0 units=km
+new linecode.LCode_104 nphases=3 rmatrix=[1.007307 | 0.059160 1.007307 | 0.059160 0.059160 1.007307] xmatrix=[1.339692 | 1.024695 1.339692 | 0.940589 1.024695 1.339692] units=km
+new line.line_104 bus1=bus_69.1.2.3 bus2=bus_73.1.2.3 linecode=LCode_104 length=1.0 units=km
+new linecode.LCode_105 nphases=2 rmatrix=[0.350804 | 0.059160 0.350804] xmatrix=[1.242115 | 1.024695 1.242115] units=km
+new line.line_105 bus1=bus_69.1.2 bus2=bus_74.1.2 linecode=LCode_105 length=1.0 units=km
+new linecode.LCode_106 nphases=2 rmatrix=[0.932440 | 0.059160 0.932440] xmatrix=[1.242115 | 1.024695 1.242115] units=km
+new line.line_106 bus1=bus_68.1.2 bus2=bus_74.1.2 linecode=LCode_106 length=1.0 units=km
+new linecode.LCode_107 nphases=2 rmatrix=[0.903906 | 0.059160 0.903906] xmatrix=[1.303531 | 1.024695 1.303531] units=km
+new line.line_107 bus1=bus_73.1.2 bus2=bus_74.1.2 linecode=LCode_107 length=1.0 units=km
+new linecode.LCode_108 nphases=2 rmatrix=[0.776783 | 0.059160 0.776783] xmatrix=[1.242115 | 1.024695 1.242115] units=km
+new line.line_108 bus1=bus_75.2.3 bus2=bus_76.2.3 linecode=LCode_108 length=1.0 units=km
+new linecode.LCode_109 nphases=2 rmatrix=[0.240872 | 0.059160 0.240872] xmatrix=[1.369117 | 1.024695 1.369117] units=km
+new line.line_109 bus1=bus_68.2.3 bus2=bus_76.2.3 linecode=LCode_109 length=1.0 units=km
+new linecode.LCode_110 nphases=1 rmatrix=[0.326186] xmatrix=[1.559441] units=km
+new line.line_110 bus1=bus_74.2 bus2=bus_76.2 linecode=LCode_110 length=1.0 units=km
+new linecode.LCode_111 nphases=2 rmatrix=[0.503909 | 0.059160 0.503909] xmatrix=[1.401230 | 1.024695 1.401230] units=km
+new line.line_111 bus1=bus_76.2.3 bus2=bus_77.2.3 linecode=LCode_111 length=1.0 units=km
+new linecode.LCode_112 nphases=2 rmatrix=[1.057919 | 0.059160 1.057919] xmatrix=[1.242115 | 1.024695 1.242115] units=km
+new line.line_112 bus1=bus_77.2.3 bus2=bus_78.2.3 linecode=LCode_112 length=1.0 units=km
+new linecode.LCode_113 nphases=2 rmatrix=[0.327402 | 0.059160 0.327402] xmatrix=[1.281993 | 1.024695 1.281993] units=km
+new line.line_113 bus1=bus_76.2.3 bus2=bus_79.2.3 linecode=LCode_113 length=1.0 units=km
+new linecode.LCode_114 nphases=2 rmatrix=[0.742414 | 0.059160 0.742414] xmatrix=[1.390450 | 1.024695 1.390450] units=km
+new line.line_114 bus1=bus_76.2.3 bus2=bus_79.2.3 linecode=LCode_114 length=1.0 units=km
+new linecode.LCode_115 nphases=2 rmatrix=[0.558757 | 0.059160 0.558757] xmatrix=[1.283651 | 1.024695 1.283651] units=km
+new line.line_115 bus1=bus_78.2.3 bus2=bus_79.2.3 linecode=LCode_115 length=1.0 units=km
+new linecode.LCode_116 nphases=2 rmatrix=[0.354657 | 0.059160 0.354657] xmatrix=[1.403162 | 1.024695 1.403162] units=km
+new line.line_116 bus1=bus_76.2.3 bus2=bus_81.2.3 linecode=LCode_116 length=1.0 units=km
+new linecode.LCode_117 nphases=2 rmatrix=[0.585742 | 0.059160 0.585742] xmatrix=[1.242115 | 1.024695 1.242115] units=km
+new line.line_117 bus1=bus_81.2.3 bus2=bus_82.2.3 linecode=LCode_117 length=1.0 units=km
+new linecode.LCode_118 nphases=2 rmatrix=[1.122601 | 0.059160 1.122601] xmatrix=[1.242115 | 1.024695 1.242115] units=km
+new line.line_118 bus1=bus_82.2.3 bus2=bus_83.2.3 linecode=LCode_118 length=1.0 units=km
+new linecode.LCode_119 nphases=2 rmatrix=[0.765734 | 0.059160 0.765734] xmatrix=[1.242115 | 1.024695 1.242115] units=km
+new line.line_119 bus1=bus_82.2.3 bus2=bus_84.2.3 linecode=LCode_119 length=1.0 units=km
+new linecode.LCode_120 nphases=2 rmatrix=[0.624638 | 0.059160 0.624638] xmatrix=[1.398745 | 1.024695 1.398745] units=km
+new line.line_120 bus1=bus_83.2.3 bus2=bus_84.2.3 linecode=LCode_120 length=1.0 units=km
+new linecode.LCode_121 nphases=2 rmatrix=[0.839797 | 0.059160 0.839797] xmatrix=[1.242115 | 1.024695 1.242115] units=km
+new line.line_121 bus1=bus_84.2.3 bus2=bus_85.2.3 linecode=LCode_121 length=1.0 units=km
+new linecode.LCode_122 nphases=2 rmatrix=[0.873421 | 0.059160 0.873421] xmatrix=[1.304756 | 1.024695 1.304756] units=km
+new line.line_122 bus1=bus_84.2.3 bus2=bus_87.2.3 linecode=LCode_122 length=1.0 units=km
+new linecode.LCode_123 nphases=2 rmatrix=[0.403480 | 0.059160 0.403480] xmatrix=[1.305889 | 1.024695 1.305889] units=km
+new line.line_123 bus1=bus_84.2.3 bus2=bus_88.2.3 linecode=LCode_123 length=1.0 units=km
+new linecode.LCode_124 nphases=2 rmatrix=[0.656106 | 0.059160 0.656106] xmatrix=[1.242115 | 1.024695 1.242115] units=km
+new line.line_124 bus1=bus_87.2.3 bus2=bus_88.2.3 linecode=LCode_124 length=1.0 units=km
+new linecode.LCode_125 nphases=1 rmatrix=[0.698465] xmatrix=[1.328506] units=km
+new line.line_125 bus1=bus_88.3 bus2=bus_89.3 linecode=LCode_125 length=1.0 units=km
+new linecode.LCode_126 nphases=1 rmatrix=[1.078118] xmatrix=[1.428598] units=km
+new line.line_126 bus1=bus_88.3 bus2=bus_89.3 linecode=LCode_126 length=1.0 units=km
+new linecode.LCode_127 nphases=1 rmatrix=[0.603030] xmatrix=[1.276661] units=km
+new line.line_127 bus1=bus_89.3 bus2=bus_90.3 linecode=LCode_127 length=1.0 units=km
+new linecode.LCode_128 nphases=1 rmatrix=[1.395796] xmatrix=[1.457563] units=km
+new line.line_128 bus1=bus_88.3 bus2=bus_91.3 linecode=LCode_128 length=1.0 units=km
+new linecode.LCode_129 nphases=1 rmatrix=[0.276268] xmatrix=[1.392727] units=km
+new line.line_129 bus1=bus_88.3 bus2=bus_91.3 linecode=LCode_129 length=1.0 units=km
+new linecode.LCode_130 nphases=1 rmatrix=[0.874222] xmatrix=[1.696465] units=km
+new line.line_130 bus1=bus_90.3 bus2=bus_91.3 linecode=LCode_130 length=1.0 units=km
+new linecode.LCode_131 nphases=1 rmatrix=[0.565010] xmatrix=[1.315773] units=km
+new line.line_131 bus1=bus_91.3 bus2=bus_92.3 linecode=LCode_131 length=1.0 units=km
+new linecode.LCode_132 nphases=1 rmatrix=[0.666112] xmatrix=[1.299144] units=km
+new line.line_132 bus1=bus_91.3 bus2=bus_93.3 linecode=LCode_132 length=1.0 units=km
+new linecode.LCode_133 nphases=1 rmatrix=[0.518337] xmatrix=[1.500424] units=km
+new line.line_133 bus1=bus_92.3 bus2=bus_93.3 linecode=LCode_133 length=1.0 units=km
+new linecode.LCode_134 nphases=1 rmatrix=[0.429500] xmatrix=[1.242115] units=km
+new line.line_134 bus1=bus_93.3 bus2=bus_94.3 linecode=LCode_134 length=1.0 units=km
+new linecode.LCode_135 nphases=1 rmatrix=[0.813346] xmatrix=[1.242115] units=km
+new line.line_135 bus1=bus_79.3 bus2=bus_95.3 linecode=LCode_135 length=1.0 units=km
+new linecode.LCode_136 nphases=1 rmatrix=[0.724423] xmatrix=[1.335046] units=km
+new line.line_136 bus1=bus_81.3 bus2=bus_95.3 linecode=LCode_136 length=1.0 units=km
+new linecode.LCode_137 nphases=1 rmatrix=[0.685989] xmatrix=[1.271416] units=km
+new line.line_137 bus1=bus_93.3 bus2=bus_95.3 linecode=LCode_137 length=1.0 units=km
+new linecode.LCode_138 nphases=2 rmatrix=[0.801551 | 0.059160 0.801551] xmatrix=[1.242115 | 1.024695 1.242115] units=km
+new line.line_138 bus1=bus_79.2.3 bus2=bus_96.2.3 linecode=LCode_138 length=1.0 units=km
+new linecode.LCode_139 nphases=2 rmatrix=[0.244522 | 0.059160 0.244522] xmatrix=[1.487393 | 1.024695 1.487393] units=km
+new line.line_139 bus1=bus_79.2.3 bus2=bus_97.2.3 linecode=LCode_139 length=1.0 units=km
+new linecode.LCode_140 nphases=2 rmatrix=[0.763297 | 0.059160 0.763297] xmatrix=[1.388623 | 1.024695 1.388623] units=km
+new line.line_140 bus1=bus_79.2.3 bus2=bus_98.2.3 linecode=LCode_140 length=1.0 units=km
+new linecode.LCode_141 nphases=1 rmatrix=[0.223490] xmatrix=[1.242115] units=km
+new line.line_141 bus1=bus_91.3 bus2=bus_99.3 linecode=LCode_141 length=1.0 units=km
+new linecode.LCode_142 nphases=1 rmatrix=[0.882458] xmatrix=[1.306007] units=km
+new line.line_142 bus1=bus_93.3 bus2=bus_99.3 linecode=LCode_142 length=1.0 units=km
+new linecode.LCode_143 nphases=1 rmatrix=[0.787622] xmatrix=[1.350045] units=km
+new line.line_143 bus1=bus_94.3 bus2=bus_95.3 linecode=LCode_143 length=1.0 units=km
+new linecode.LCode_144 nphases=1 rmatrix=[0.598791] xmatrix=[1.242115] units=km
+new line.line_144 bus1=bus_95.3 bus2=bus_96.3 linecode=LCode_144 length=1.0 units=km
+new linecode.LCode_145 nphases=2 rmatrix=[0.245516 | 0.059160 0.245516] xmatrix=[1.335249 | 1.024695 1.335249] units=km
+new line.line_145 bus1=bus_97.2.3 bus2=bus_99.2.3 linecode=LCode_145 length=1.0 units=km
+new linecode.LCode_146 nphases=2 rmatrix=[0.689014 | 0.059160 0.689014] xmatrix=[1.242115 | 1.024695 1.242115] units=km
+new line.line_146 bus1=bus_98.2.3 bus2=bus_99.2.3 linecode=LCode_146 length=1.0 units=km
+new linecode.LCode_147 nphases=2 rmatrix=[1.384514 | 0.059160 1.384514] xmatrix=[1.242115 | 1.024695 1.242115] units=km
+new line.line_147 bus1=bus_99.2.3 bus2=bus_100.2.3 linecode=LCode_147 length=1.0 units=km
+new linecode.LCode_148 nphases=1 rmatrix=[0.925822] xmatrix=[1.442508] units=km
+new line.line_148 bus1=bus_91.3 bus2=bus_101.3 linecode=LCode_148 length=1.0 units=km
+new linecode.LCode_149 nphases=1 rmatrix=[1.095183] xmatrix=[1.256190] units=km
+new line.line_149 bus1=bus_100.3 bus2=bus_101.3 linecode=LCode_149 length=1.0 units=km
+new linecode.LCode_150 nphases=2 rmatrix=[0.693565 | 0.059160 0.693565] xmatrix=[1.242115 | 1.024695 1.242115] units=km
+new line.line_150 bus1=bus_99.2.3 bus2=bus_102.2.3 linecode=LCode_150 length=1.0 units=km
+new linecode.LCode_153 nphases=1 rmatrix=[0.782382] xmatrix=[1.242115] units=km
+new line.line_153 bus1=bus_102.3 bus2=bus_104.3 linecode=LCode_153 length=1.0 units=km
+new linecode.LCode_158 nphases=1 rmatrix=[0.246629] xmatrix=[1.242115] units=km
+new line.line_158 bus1=bus_104.3 bus2=bus_107.3 linecode=LCode_158 length=1.0 units=km
+new linecode.LCode_159 nphases=1 rmatrix=[0.697289] xmatrix=[1.537350] units=km
+new line.line_159 bus1=bus_105.1 bus2=bus_106.1 linecode=LCode_159 length=1.0 units=km
+new linecode.LCode_160 nphases=1 rmatrix=[0.522373] xmatrix=[1.357222] units=km
+new line.line_160 bus1=bus_107.3 bus2=bus_108.3 linecode=LCode_160 length=1.0 units=km
+new linecode.LCode_161 nphases=2 rmatrix=[0.826293 | 0.059160 0.826293] xmatrix=[1.305589 | 1.024695 1.305589] units=km
+new line.line_161 bus1=bus_102.2.3 bus2=bus_109.2.3 linecode=LCode_161 length=1.0 units=km
+new linecode.LCode_162 nphases=2 rmatrix=[0.610299 | 0.059160 0.610299] xmatrix=[1.283735 | 1.024695 1.283735] units=km
+new line.line_162 bus1=bus_108.2.3 bus2=bus_109.2.3 linecode=LCode_162 length=1.0 units=km
+new linecode.LCode_163 nphases=1 rmatrix=[0.538920] xmatrix=[1.242115] units=km
+new line.line_163 bus1=bus_109.3 bus2=bus_110.3 linecode=LCode_163 length=1.0 units=km
+new linecode.LCode_164 nphases=1 rmatrix=[0.712233] xmatrix=[1.341635] units=km
+new line.line_164 bus1=bus_109.3 bus2=bus_111.3 linecode=LCode_164 length=1.0 units=km
+new linecode.LCode_165 nphases=1 rmatrix=[0.624100] xmatrix=[1.401884] units=km
+new line.line_165 bus1=bus_16.3 bus2=bus_112.3 linecode=LCode_165 length=1.0 units=km
+new linecode.LCode_166 nphases=1 rmatrix=[0.787199] xmatrix=[1.249949] units=km
+new line.line_166 bus1=bus_31.3 bus2=bus_112.3 linecode=LCode_166 length=1.0 units=km
+new linecode.LCode_167 nphases=1 rmatrix=[1.299143] xmatrix=[1.314305] units=km
+new line.line_167 bus1=bus_31.3 bus2=bus_113.3 linecode=LCode_167 length=1.0 units=km
+new linecode.LCode_168 nphases=1 rmatrix=[0.814690] xmatrix=[1.242115] units=km
+new line.line_168 bus1=bus_26.3 bus2=bus_114.3 linecode=LCode_168 length=1.0 units=km
+new linecode.LCode_169 nphases=1 rmatrix=[1.165290] xmatrix=[1.670598] units=km
+new line.line_169 bus1=bus_113.3 bus2=bus_114.3 linecode=LCode_169 length=1.0 units=km
+new linecode.LCode_170 nphases=1 rmatrix=[0.734377] xmatrix=[1.242115] units=km
+new line.line_170 bus1=bus_11.3 bus2=bus_116.3 linecode=LCode_170 length=1.0 units=km
+new linecode.LCode_171 nphases=2 rmatrix=[0.302995 | 0.059160 0.302995] xmatrix=[1.457347 | 1.024695 1.457347] units=km
+new line.line_171 bus1=bus_74.1.2 bus2=bus_117.1.2 linecode=LCode_171 length=1.0 units=km
+new linecode.LCode_172 nphases=1 rmatrix=[0.276362] xmatrix=[1.242115] units=km
+new line.line_172 bus1=bus_75.2 bus2=bus_117.2 linecode=LCode_172 length=1.0 units=km
+
+!---------------- LOADS ----------------
+
+new load.load_0_C bus1=bus_0.3 Phases=1 kv=157.6864406779661 kw=1879.7598770217576 kvar=616.5612396631365 vminpu=0.85
+new load.load_1_C bus1=bus_1.3 Phases=1 kv=157.6864406779661 kw=2026.034724629156 kvar=664.5393896783632 vminpu=0.85
+new load.load_2_C bus1=bus_2.3 Phases=1 kv=157.6864406779661 kw=1533.8450014245152 kvar=503.101160467241 vminpu=0.85
+new load.load_3_C bus1=bus_3.3 Phases=1 kv=157.6864406779661 kw=1608.619241888321 kvar=527.6271113393693 vminpu=0.85
+new load.load_4_C bus1=bus_4.3 Phases=1 kv=157.6864406779661 kw=2061.3913287065875 kvar=676.1363558157607 vminpu=0.85
+new load.load_5_C bus1=bus_5.3 Phases=1 kv=157.6864406779661 kw=1826.1763720318984 kvar=598.9858500264627 vminpu=0.85
+new load.load_6_C bus1=bus_6.3 Phases=1 kv=157.6864406779661 kw=2036.1440496913929 kvar=667.8552482987769 vminpu=0.85
+new load.load_7_C bus1=bus_7.3 Phases=1 kv=157.6864406779661 kw=1502.6107520661155 kvar=492.8563266776859 vminpu=0.85
+new load.load_8_C bus1=bus_8.3 Phases=1 kv=157.6864406779661 kw=2654.650363819525 kvar=870.7253193328042 vminpu=0.85
+new load.load_9_C bus1=bus_9.3 Phases=1 kv=157.6864406779661 kw=2278.665498916726 kvar=747.4022836446861 vminpu=0.85
+new load.load_10_C bus1=bus_10.3 Phases=1 kv=157.6864406779661 kw=2370.3542965650727 kvar=777.4762092733439 vminpu=0.85
+new load.load_11_C bus1=bus_11.3 Phases=1 kv=157.6864406779661 kw=2041.380728184478 kvar=669.5728788445088 vminpu=0.85
+new load.load_12_A bus1=bus_12.1 Phases=1 kv=157.6864406779661 kw=1335.9683936254544 kvar=438.1976331091491 vminpu=0.85
+new load.load_13_A bus1=bus_13.1 Phases=1 kv=157.6864406779661 kw=1391.5388408013391 kvar=456.42473978283925 vminpu=0.85
+new load.load_14_A bus1=bus_14.1 Phases=1 kv=157.6864406779661 kw=2073.573489521228 kvar=680.1321045629628 vminpu=0.85
+new load.load_15_C bus1=bus_15.3 Phases=1 kv=157.6864406779661 kw=1566.0219535915492 kvar=513.6552007780282 vminpu=0.85
+new load.load_16_C bus1=bus_16.3 Phases=1 kv=157.6864406779661 kw=2001.3514315183236 kvar=656.4432695380102 vminpu=0.85
+new load.load_17_C bus1=bus_17.3 Phases=1 kv=157.6864406779661 kw=1536.0343348404556 kvar=503.81926182766944 vminpu=0.85
+new load.load_18_A bus1=bus_18.1 Phases=1 kv=157.6864406779661 kw=1426.4477275950085 kvar=467.8748546511628 vminpu=0.85
+new load.load_19_C bus1=bus_19.3 Phases=1 kv=157.6864406779661 kw=2150.0895381774853 kvar=705.2293685222152 vminpu=0.85
+new load.load_20_C bus1=bus_20.3 Phases=1 kv=157.6864406779661 kw=2439.8536583958003 kvar=800.2719999538225 vminpu=0.85
+new load.load_21_C bus1=bus_21.3 Phases=1 kv=157.6864406779661 kw=2055.9456280321847 kvar=674.3501659945566 vminpu=0.85
+new load.load_22_C bus1=bus_22.3 Phases=1 kv=157.6864406779661 kw=2387.5116310674603 kvar=783.103814990127 vminpu=0.85
+new load.load_23_B bus1=bus_23.2 Phases=1 kv=157.6864406779661 kw=678.8268503742959 kvar=222.65520692276905 vminpu=0.85
+new load.load_23_C bus1=bus_23.3 Phases=1 kv=157.6864406779661 kw=1680.2942852131373 kvar=551.136525549909 vminpu=0.85
+new load.load_24_C bus1=bus_24.3 Phases=1 kv=157.6864406779661 kw=1828.2762506801616 kvar=599.674610223093 vminpu=0.85
+new load.load_25_C bus1=bus_25.3 Phases=1 kv=157.6864406779661 kw=1801.9872325286035 kvar=591.051812269382 vminpu=0.85
+new load.load_26_C bus1=bus_26.3 Phases=1 kv=157.6864406779661 kw=1558.7796978799176 kvar=511.279740904613 vminpu=0.85
+new load.load_27_C bus1=bus_27.3 Phases=1 kv=157.6864406779661 kw=2175.8740068521797 kvar=713.6866742475149 vminpu=0.85
+new load.load_28_C bus1=bus_28.3 Phases=1 kv=157.6864406779661 kw=2051.3412844425143 kvar=672.8399412971447 vminpu=0.85
+new load.load_29_C bus1=bus_29.3 Phases=1 kv=157.6864406779661 kw=1632.228920811955 kvar=535.3710860263212 vminpu=0.85
+new load.load_30_C bus1=bus_30.3 Phases=1 kv=157.6864406779661 kw=1923.62410851262 kvar=630.9487075921394 vminpu=0.85
+new load.load_31_C bus1=bus_31.3 Phases=1 kv=157.6864406779661 kw=1944.4888600719648 kvar=637.7923461036045 vminpu=0.85
+new load.load_32_A bus1=bus_32.1 Phases=1 kv=157.6864406779661 kw=1794.4347696333027 kvar=588.5746044397233 vminpu=0.85
+new load.load_33_A bus1=bus_33.1 Phases=1 kv=157.6864406779661 kw=1992.4019245375623 kvar=653.5078312483205 vminpu=0.85
+new load.load_34_A bus1=bus_34.1 Phases=1 kv=157.6864406779661 kw=2006.850049076564 kvar=658.246816097113 vminpu=0.85
+new load.load_35_A bus1=bus_35.1 Phases=1 kv=157.6864406779661 kw=2046.5335864408996 kvar=671.2630163526151 vminpu=0.85
+new load.load_36_A bus1=bus_36.1 Phases=1 kv=157.6864406779661 kw=1927.0391678117064 kvar=632.0688470422398 vminpu=0.85
+new load.load_37_C bus1=bus_37.3 Phases=1 kv=157.6864406779661 kw=1663.9472415928772 kvar=545.7746952424637 vminpu=0.85
+new load.load_38_A bus1=bus_38.1 Phases=1 kv=157.6864406779661 kw=2353.29236571244 kvar=771.8798959536804 vminpu=0.85
+new load.load_39_A bus1=bus_39.1 Phases=1 kv=157.6864406779661 kw=1880.274959724724 kvar=616.7301867897095 vminpu=0.85
+new load.load_40_A bus1=bus_40.1 Phases=1 kv=157.6864406779661 kw=2038.5354216086305 kvar=668.6396182876308 vminpu=0.85
+new load.load_41_A bus1=bus_41.1 Phases=1 kv=157.6864406779661 kw=1991.0992753336543 kvar=653.0805623094386 vminpu=0.85
+new load.load_42_A bus1=bus_42.1 Phases=1 kv=157.6864406779661 kw=2130.7087063665317 kvar=698.8724556882224 vminpu=0.85
+new load.load_43_A bus1=bus_43.1 Phases=1 kv=157.6864406779661 kw=1838.0683549998107 kvar=602.886420439938 vminpu=0.85
+new load.load_44_A bus1=bus_44.1 Phases=1 kv=157.6864406779661 kw=1668.2977244954016 kvar=547.2016536344918 vminpu=0.85
+new load.load_45_A bus1=bus_45.1 Phases=1 kv=157.6864406779661 kw=2288.8006053633994 kvar=750.726598559195 vminpu=0.85
+new load.load_46_A bus1=bus_46.1 Phases=1 kv=157.6864406779661 kw=1703.6355609235927 kvar=558.7924639829384 vminpu=0.85
+new load.load_47_A bus1=bus_47.1 Phases=1 kv=157.6864406779661 kw=1072.5222305887096 kvar=351.78729163309674 vminpu=0.85
+new load.load_48_A bus1=bus_48.1 Phases=1 kv=157.6864406779661 kw=2025.2639424477231 kvar=664.2865731228533 vminpu=0.85
+new load.load_49_A bus1=bus_49.1 Phases=1 kv=157.6864406779661 kw=1794.7988689271624 kvar=588.6940290081093 vminpu=0.85
+new load.load_50_A bus1=bus_50.1 Phases=1 kv=157.6864406779661 kw=1941.833231758422 kvar=636.9213000167624 vminpu=0.85
+new load.load_51_A bus1=bus_51.1 Phases=1 kv=157.6864406779661 kw=1337.095238856503 kvar=438.56723834493306 vminpu=0.85
+new load.load_52_A bus1=bus_52.1 Phases=1 kv=157.6864406779661 kw=2073.7218786086623 kvar=680.1807761836412 vminpu=0.85
+new load.load_53_A bus1=bus_53.1 Phases=1 kv=157.6864406779661 kw=2939.2564029802656 kvar=964.0761001775272 vminpu=0.85
+new load.load_54_A bus1=bus_54.1 Phases=1 kv=157.6864406779661 kw=1792.5472159343517 kvar=587.9554868264673 vminpu=0.85
+new load.load_55_A bus1=bus_55.1 Phases=1 kv=157.6864406779661 kw=1785.882022766654 kvar=585.7693034674626 vminpu=0.85
+new load.load_56_A bus1=bus_56.1 Phases=1 kv=157.6864406779661 kw=2204.237152892378 kvar=722.9897861487001 vminpu=0.85
+new load.load_57_A bus1=bus_57.1 Phases=1 kv=157.6864406779661 kw=1987.716677419863 kvar=651.971070193715 vminpu=0.85
+new load.load_58_A bus1=bus_58.1 Phases=1 kv=157.6864406779661 kw=2331.015270004002 kvar=764.5730085613127 vminpu=0.85
+new load.load_59_A bus1=bus_59.1 Phases=1 kv=157.6864406779661 kw=2210.6622888709544 kvar=725.097230749673 vminpu=0.85
+new load.load_60_A bus1=bus_60.1 Phases=1 kv=157.6864406779661 kw=1988.067455735901 kvar=652.0861254813756 vminpu=0.85
+new load.load_61_A bus1=bus_61.1 Phases=1 kv=157.6864406779661 kw=2482.0361364434025 kvar=814.1078527534361 vminpu=0.85
+new load.load_62_C bus1=bus_62.3 Phases=1 kv=157.6864406779661 kw=1960.963260673653 kvar=643.1959495009581 vminpu=0.85
+new load.load_63_C bus1=bus_63.3 Phases=1 kv=157.6864406779661 kw=2177.408613338718 kvar=714.1900251750995 vminpu=0.85
+new load.load_64_C bus1=bus_64.3 Phases=1 kv=157.6864406779661 kw=2207.5180692308863 kvar=724.0659267077308 vminpu=0.85
+new load.load_65_A bus1=bus_65.1 Phases=1 kv=157.6864406779661 kw=1587.9279974592855 kvar=520.8403831666457 vminpu=0.85
+new load.load_66_A bus1=bus_66.1 Phases=1 kv=157.6864406779661 kw=2429.257243227813 kvar=796.7963757787227 vminpu=0.85
+new load.load_67_A bus1=bus_67.1 Phases=1 kv=157.6864406779661 kw=42.43288880342372 kvar=13.917987527522982 vminpu=0.85
+new load.load_67_C bus1=bus_67.3 Phases=1 kv=157.6864406779661 kw=1628.5456692821554 kvar=534.1629795245469 vminpu=0.85
+new load.load_69_A bus1=bus_69.1 Phases=1 kv=157.6864406779661 kw=83.0330184198013 kvar=27.234830041694824 vminpu=0.85
+new load.load_69_B bus1=bus_69.2 Phases=1 kv=157.6864406779661 kw=898.7733448329317 kvar=294.7976571052016 vminpu=0.85
+new load.load_69_C bus1=bus_69.3 Phases=1 kv=157.6864406779661 kw=1088.845462170902 kvar=357.1413115920559 vminpu=0.85
+new load.load_70_A bus1=bus_70.1 Phases=1 kv=157.6864406779661 kw=343.786670160205 kvar=112.76202781254725 vminpu=0.85
+new load.load_70_B bus1=bus_70.2 Phases=1 kv=157.6864406779661 kw=1734.424122685144 kvar=568.8911122407272 vminpu=0.85
+new load.load_71_B bus1=bus_71.2 Phases=1 kv=157.6864406779661 kw=1154.0514779211846 kvar=378.5288847581486 vminpu=0.85
+new load.load_71_C bus1=bus_71.3 Phases=1 kv=157.6864406779661 kw=1183.0429620910554 kvar=388.0380915658662 vminpu=0.85
+new load.load_72_A bus1=bus_72.1 Phases=1 kv=157.6864406779661 kw=657.6401684616537 kvar=215.70597525542243 vminpu=0.85
+new load.load_72_B bus1=bus_72.2 Phases=1 kv=157.6864406779661 kw=1179.858546006166 kvar=386.9936030900225 vminpu=0.85
+new load.load_73_A bus1=bus_73.1 Phases=1 kv=157.6864406779661 kw=264.6901374215551 kvar=86.81836507427008 vminpu=0.85
+new load.load_73_B bus1=bus_73.2 Phases=1 kv=157.6864406779661 kw=489.7255796309616 kvar=160.62999011895542 vminpu=0.85
+new load.load_73_C bus1=bus_73.3 Phases=1 kv=157.6864406779661 kw=1659.699240137012 kvar=544.38135076494 vminpu=0.85
+new load.load_74_A bus1=bus_74.1 Phases=1 kv=157.6864406779661 kw=1404.50385691123 kvar=460.6772650668835 vminpu=0.85
+new load.load_74_B bus1=bus_74.2 Phases=1 kv=157.6864406779661 kw=423.7880009199992 kvar=139.00246430175974 vminpu=0.85
+new load.load_75_B bus1=bus_75.2 Phases=1 kv=157.6864406779661 kw=1101.8352503486797 kvar=361.40196211436694 vminpu=0.85
+new load.load_75_C bus1=bus_75.3 Phases=1 kv=157.6864406779661 kw=1142.7289137198109 kvar=374.815083700098 vminpu=0.85
+new load.load_76_B bus1=bus_76.2 Phases=1 kv=157.6864406779661 kw=72.55350563153223 kvar=23.797549847142573 vminpu=0.85
+new load.load_76_C bus1=bus_76.3 Phases=1 kv=157.6864406779661 kw=1507.3599425370053 kvar=494.4140611521378 vminpu=0.85
+new load.load_77_B bus1=bus_77.2 Phases=1 kv=157.6864406779661 kw=689.1101898114914 kvar=226.0281422581692 vminpu=0.85
+new load.load_77_C bus1=bus_77.3 Phases=1 kv=157.6864406779661 kw=564.0416411896614 kvar=185.00565831020896 vminpu=0.85
+new load.load_78_B bus1=bus_78.2 Phases=1 kv=157.6864406779661 kw=1322.157717952889 kvar=433.6677314885476 vminpu=0.85
+new load.load_78_C bus1=bus_78.3 Phases=1 kv=157.6864406779661 kw=1135.1162666152525 kvar=372.3181354498028 vminpu=0.85
+new load.load_79_B bus1=bus_79.2 Phases=1 kv=157.6864406779661 kw=2094.474665334236 kvar=686.9876902296294 vminpu=0.85
+new load.load_79_C bus1=bus_79.3 Phases=1 kv=157.6864406779661 kw=272.95697104998544 kvar=89.52988650439522 vminpu=0.85
+new load.load_80_A bus1=bus_80.1 Phases=1 kv=157.6864406779661 kw=1839.9351369853075 kvar=603.4987249311808 vminpu=0.85
+new load.load_80_C bus1=bus_80.3 Phases=1 kv=157.6864406779661 kw=58.71528182254978 kvar=19.258612437796327 vminpu=0.85
+new load.load_81_B bus1=bus_81.2 Phases=1 kv=157.6864406779661 kw=1839.145454468745 kvar=603.2397090657483 vminpu=0.85
+new load.load_81_C bus1=bus_81.3 Phases=1 kv=157.6864406779661 kw=188.9276166101324 kvar=61.968258248123426 vminpu=0.85
+new load.load_82_B bus1=bus_82.2 Phases=1 kv=157.6864406779661 kw=1619.778987461502 kvar=531.2875078873727 vminpu=0.85
+new load.load_82_C bus1=bus_82.3 Phases=1 kv=157.6864406779661 kw=361.3487370236208 kvar=118.52238574374763 vminpu=0.85
+new load.load_83_B bus1=bus_83.2 Phases=1 kv=157.6864406779661 kw=1843.623499716912 kvar=604.7085079071471 vminpu=0.85
+new load.load_83_C bus1=bus_83.3 Phases=1 kv=157.6864406779661 kw=204.4470425508932 kvar=67.05862995669297 vminpu=0.85
+new load.load_84_B bus1=bus_84.2 Phases=1 kv=157.6864406779661 kw=374.3832287360756 kvar=122.79769902543279 vminpu=0.85
+new load.load_84_C bus1=bus_84.3 Phases=1 kv=157.6864406779661 kw=1935.6915671070103 kvar=634.9068340110994 vminpu=0.85
+new load.load_85_B bus1=bus_85.2 Phases=1 kv=157.6864406779661 kw=1857.0894009526155 kvar=609.125323512458 vminpu=0.85
+new load.load_85_C bus1=bus_85.3 Phases=1 kv=157.6864406779661 kw=43.74784472831049 kvar=14.34929307088584 vminpu=0.85
+new load.load_86_B bus1=bus_86.2 Phases=1 kv=157.6864406779661 kw=489.2284900867631 kvar=160.4669447484583 vminpu=0.85
+new load.load_86_C bus1=bus_86.3 Phases=1 kv=157.6864406779661 kw=1734.925483855979 kvar=569.0555587047612 vminpu=0.85
+new load.load_87_B bus1=bus_87.2 Phases=1 kv=157.6864406779661 kw=1599.521398848328 kvar=524.6430188222516 vminpu=0.85
+new load.load_87_C bus1=bus_87.3 Phases=1 kv=157.6864406779661 kw=1013.5061211439886 kvar=332.4300077352283 vminpu=0.85
+new load.load_88_B bus1=bus_88.2 Phases=1 kv=157.6864406779661 kw=1702.8163830594383 kvar=558.5237736434958 vminpu=0.85
+new load.load_88_C bus1=bus_88.3 Phases=1 kv=157.6864406779661 kw=20.028771096784403 kvar=6.569436919745285 vminpu=0.85
+new load.load_89_C bus1=bus_89.3 Phases=1 kv=157.6864406779661 kw=2454.9128128143643 kvar=805.2114026031115 vminpu=0.85
+new load.load_90_C bus1=bus_90.3 Phases=1 kv=157.6864406779661 kw=1486.8334410873467 kvar=487.68136867664975 vminpu=0.85
+new load.load_91_C bus1=bus_91.3 Phases=1 kv=157.6864406779661 kw=1612.8414305283509 kvar=529.0119892132991 vminpu=0.85
+new load.load_92_C bus1=bus_92.3 Phases=1 kv=157.6864406779661 kw=1884.1916197879077 kvar=618.0148512904337 vminpu=0.85
+new load.load_93_C bus1=bus_93.3 Phases=1 kv=157.6864406779661 kw=2138.618213496794 kvar=701.4667740269484 vminpu=0.85
+new load.load_94_C bus1=bus_94.3 Phases=1 kv=157.6864406779661 kw=2077.8430321510755 kvar=681.5325145455528 vminpu=0.85
+new load.load_95_C bus1=bus_95.3 Phases=1 kv=157.6864406779661 kw=2257.686632347905 kvar=740.5212154101129 vminpu=0.85
+new load.load_96_B bus1=bus_96.2 Phases=1 kv=157.6864406779661 kw=1416.3517602578531 kvar=464.56337736457584 vminpu=0.85
+new load.load_96_C bus1=bus_96.3 Phases=1 kv=157.6864406779661 kw=1334.1658038838184 kvar=437.6063836738925 vminpu=0.85
+new load.load_97_B bus1=bus_97.2 Phases=1 kv=157.6864406779661 kw=1998.5680850940369 kvar=655.5303319108441 vminpu=0.85
+new load.load_97_C bus1=bus_97.3 Phases=1 kv=157.6864406779661 kw=358.3890885737988 kvar=117.55162105220602 vminpu=0.85
+new load.load_98_B bus1=bus_98.2 Phases=1 kv=157.6864406779661 kw=527.664930356807 kvar=173.0740971570327 vminpu=0.85
+new load.load_98_C bus1=bus_98.3 Phases=1 kv=157.6864406779661 kw=550.8153056383493 kvar=180.66742024937858 vminpu=0.85
+new load.load_99_B bus1=bus_99.2 Phases=1 kv=157.6864406779661 kw=1329.7361903827227 kvar=436.15347044553306 vminpu=0.85
+new load.load_99_C bus1=bus_99.3 Phases=1 kv=157.6864406779661 kw=362.07591852490407 kvar=118.76090127616854 vminpu=0.85
+new load.load_100_B bus1=bus_100.2 Phases=1 kv=157.6864406779661 kw=137.27527152501816 kvar=45.026289060205954 vminpu=0.85
+new load.load_100_C bus1=bus_100.3 Phases=1 kv=157.6864406779661 kw=1923.8020014904653 kvar=631.0070564888726 vminpu=0.85
+new load.load_101_C bus1=bus_101.3 Phases=1 kv=157.6864406779661 kw=1707.4891208808883 kvar=560.0564316489314 vminpu=0.85
+new load.load_102_B bus1=bus_102.2 Phases=1 kv=157.6864406779661 kw=450.007691079171 kvar=147.6025226739681 vminpu=0.85
+new load.load_102_C bus1=bus_102.3 Phases=1 kv=157.6864406779661 kw=1699.8866397771806 kvar=557.5628178469152 vminpu=0.85
+new load.load_103_A bus1=bus_103.1 Phases=1 kv=157.6864406779661 kw=2870.3183117324847 kvar=941.464406248255 vminpu=0.85
+new load.load_104_C bus1=bus_104.3 Phases=1 kv=157.6864406779661 kw=2093.470599345227 kvar=686.6583565852345 vminpu=0.85
+new load.load_105_A bus1=bus_105.1 Phases=1 kv=157.6864406779661 kw=2251.2693804629303 kvar=738.4163567918412 vminpu=0.85
+new load.load_106_A bus1=bus_106.1 Phases=1 kv=157.6864406779661 kw=1793.9480262246109 kvar=588.4149526016724 vminpu=0.85
+new load.load_107_C bus1=bus_107.3 Phases=1 kv=157.6864406779661 kw=2440.729026404172 kvar=800.5591206605685 vminpu=0.85
+new load.load_108_B bus1=bus_108.2 Phases=1 kv=157.6864406779661 kw=944.4672543661218 kvar=309.78525943208797 vminpu=0.85
+new load.load_108_C bus1=bus_108.3 Phases=1 kv=157.6864406779661 kw=753.5759595941462 kvar=247.17291474687997 vminpu=0.85
+new load.load_109_B bus1=bus_109.2 Phases=1 kv=157.6864406779661 kw=1699.8501779150236 kvar=557.5508583561277 vminpu=0.85
+new load.load_109_C bus1=bus_109.3 Phases=1 kv=157.6864406779661 kw=22.249659288083144 kvar=7.297888246491271 vminpu=0.85
+new load.load_110_C bus1=bus_110.3 Phases=1 kv=157.6864406779661 kw=1860.6315028832 kvar=610.2871329456897 vminpu=0.85
+new load.load_111_C bus1=bus_111.3 Phases=1 kv=157.6864406779661 kw=2590.076722700374 kvar=849.5451650457227 vminpu=0.85
+new load.load_112_C bus1=bus_112.3 Phases=1 kv=157.6864406779661 kw=1962.0285394066848 kvar=643.5453609253926 vminpu=0.85
+new load.load_113_C bus1=bus_113.3 Phases=1 kv=157.6864406779661 kw=2598.281304892941 kvar=852.2362680048847 vminpu=0.85
+new load.load_114_C bus1=bus_114.3 Phases=1 kv=157.6864406779661 kw=1615.7626190322903 kvar=529.9701390425912 vminpu=0.85
+new load.load_115_A bus1=bus_115.1 Phases=1 kv=157.6864406779661 kw=76.94356135848601 kvar=25.23748812558341 vminpu=0.85
+new load.load_115_C bus1=bus_115.3 Phases=1 kv=157.6864406779661 kw=1953.8459340702984 kvar=640.861466375058 vminpu=0.85
+new load.load_116_C bus1=bus_116.3 Phases=1 kv=157.6864406779661 kw=2483.508750400749 kvar=814.5908701314456 vminpu=0.85
+new load.load_117_A bus1=bus_117.1 Phases=1 kv=157.6864406779661 kw=307.4470676179829 kvar=100.8426381786984 vminpu=0.85
+new load.load_117_B bus1=bus_117.2 Phases=1 kv=157.6864406779661 kw=1892.640351295683 kvar=620.7860352249841 vminpu=0.85
+
+!---------------- SOLUTION ----------------
+
+set controlmode=off
+Set Voltagebases=[157.6864406779661]
+calcv
+Solve

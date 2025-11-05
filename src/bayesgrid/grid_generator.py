@@ -199,7 +199,7 @@ def first_ramification_in_path(path, ramification_keys):
 # --- Part 1: Data Preprocessing Utility (Unchanged) ---
 # ====================================================================
 
-def preprocess_data(df, n_discrete=10, 
+def preprocess_power_and_phase_data(df, n_discrete=10, 
                     hop_col='hop_distance_normalized', 
                     phase_col='phases', 
                     power_cols=['P_A', 'P_B', 'P_C']):
@@ -235,8 +235,6 @@ def preprocess_data(df, n_discrete=10,
     # --- 2. Encode Phases ---
     phase_map = {'A': 0, 'B': 1, 'C': 2, 'AB': 3, 'AC': 4, 'BC': 5, 'ABC': 6}
     
-    if not all(p in df_proc[phase_col].unique()):
-        warnings.warn(f"Unexpected phase categories found. Only {list(phase_map.keys())} are supported.")
 
     phase_category_idx = df_proc[phase_col].map(phase_map).fillna(-1).astype(int)
     
