@@ -1,0 +1,49 @@
+Metadata-Version: 2.4
+Name: bayesgrid
+Version: 0.1.0
+Summary: A python tool for generating synthetic, unbalanced power distribution systems using bayesian models
+Requires-Python: >=3.11
+Description-Content-Type: text/x-rst
+License-File: LICENSE.txt
+Requires-Dist: arviz==0.21.0
+Requires-Dist: matplotlib==3.7.2
+Requires-Dist: networkx==3.1
+Requires-Dist: numpy==1.26.4
+Requires-Dist: osmnx==2.0.6
+Requires-Dist: pandapower==3.1.1
+Requires-Dist: pandas==2.3.3
+Requires-Dist: pymc==5.23.0
+Requires-Dist: pytensor==2.31.4
+Requires-Dist: scipy==1.12.0
+Requires-Dist: xarray==2025.6.1
+Requires-Dist: pooch==1.8.2
+Dynamic: license-file
+
+========
+bayesgrid
+========
+
+.. A python tool for generating synthetic, unbalanced power distribution systems using bayesian models
+
+This tool provides a comprehensive, data-driven module to generate synthetic power distribution systems using Bayesian models. The models learn statistical properties from real grid data—such as component parameters, topological distances, and reliability metrics—to generate new, statistically similar, and realistic synthetic networks.
+
+The primary inputs for generation are high-level topological descriptors, such as the *hop distance* (topological distance) of each bus and line from the substation. These inputs can be derived from existing ``pandapower`` networks or generated from scratch using real-world road networks from ``OpenStreetMap``.
+
+The result is a set of complete, synthetic network parameters, including:
+
+* **Bus-Level Data:**
+    * 3-Phase Power (kW)
+    * Phase Allocation (A, B, C, AB, ABC, etc.)
+    * Failure Frequency (CAIFI)
+    * Failure Duration (CAIDI)
+* **Line-Level Data:**
+    * Resistance (R1)
+    * Reactance (X1)
+
+A step-by-step tutorial on how to use the package can be found in the ``notebook_tutorials`` directory.
+
+License
+-------
+
+The code in this repository is licensed under the **MIT License** (MIT).
+See `LICENSE.txt <LICENSE.txt>`_ for rights and obligations.
