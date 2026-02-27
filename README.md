@@ -78,6 +78,21 @@ bg.save_synthetic_network(
 ```
 
 ---
+### Comprehensive Multi-Feeder & Transmission Modeling
+
+The script above generates a complete, interconnected power system. By providing a geographic center point (e.g., coordinates `-23.649, -46.702`) and a radius, `bayesgrid` leverages pre-trained priors to automatically estimate a full-scale grid topology. The tool accounts for **multiple feeders** and can integrated with the **transmission level** grid:
+
+<p align="center">
+  <img src="docs/images/sao_paulo_voronoi.png" width="32%" />
+  <img src="docs/images/sao_paulo_voltage_level.png" width="32%" />
+  <img src="docs/images/sao_paulo_complete.png" width="32%" />
+</p>
+
+* **Multi-Feeder Topology (Left):** Black dots denote primary substations. The framework uses a Voronoi-based algorithm to partition the region into distinct service areas (represented by different colors), accurately modeling the multi-feeder nature of real urban grids.
+* **Distribution Level (Center):** Automated spatial placement of distribution-level transformers and allocation of voltage levels across the network.
+* **Transmission Integration (Right):** The generated distribution system is seamlessly integrated with the upstream high-voltage transmission network, enabling comprehensive macro-level stability and planning studies.
+
+*(Note: While the tool generates the entire interconnected topology, downstream visualizations and probabilistic analyses can be easily filtered to focus on a single feeder for high-resolution studies.)*
 
 ## Documentation & Tutorials
 
@@ -94,15 +109,16 @@ These notebooks cover:
 
 ## Gallery: Generated Ensembles
 
-Because `bayesgrid` is probabilistic, generating multiple instances yields different, yet physically viable, phase allocations and power demands for the exact same geographic topology.
+Because `bayesgrid` is probabilistic, generating multiple instances yields different, yet physically viable, phase allocations and power demands for the exact same geographic topology. Below are three distinct phase-allocation samples generated for the exact same underlying street topology. The framework guarantees that downstream branches always respect the phase constraints of their parent nodes.
 
 
 <p align="center">
 <img src="docs/images/3_samples_together.png" />
 </p>
-*Three distinct phase-allocation samples generated for the exact same underlying street topology. The framework guarantees that downstream branches always respect the phase constraints of their parent nodes.*
 
-`bayesgrid` scales globally. You can generate detailed topologies for virtually any location on earth:
+
+`bayesgrid` scales globally. You can generate detailed topologies for virtually any location on earth. Below are topologies generated for São Paulo, Los Angeles, Madrid, New York, and Tokyo.
+
 
 <p align="center">
 <img src="docs/images/sao_paulo_voronoi.png" width="19%" />
@@ -111,25 +127,13 @@ Because `bayesgrid` is probabilistic, generating multiple instances yields diffe
 <img src="docs/images/new_york_voronoi.png" width="19%" />
 <img src="docs/images/tokyo_voronoi.png" width="19%" />
 </p>
-*Topologies generated for São Paulo, Los Angeles, Madrid, New York, and Tokyo.*
+
 
 ---
 
 ## Citation
 
-If you use `bayesgrid` in your research, please cite our paper:
-
-```bibtex
-@article{caetano2025bayesgrid,
-  title={bayesgrid: An Open-Source Python Tool for Generating Synthetic Transmission-Distribution Grids Using Bayesian Hierarchical Models},
-  author={Caetano, Henrique O. and Gupta, Rahul K. and Maciel, Carlos D.},
-  journal={IEEE Transactions on ...}, % Update with actual journal once published
-  year={2025}
-}
-
-```
-
-*For more details on the methodology, validation, and underlying statistical framework, please refer to our related works cited in the main paper.*
+TBA
 
 ---
 
@@ -138,6 +142,4 @@ If you use `bayesgrid` in your research, please cite our paper:
 The code in this repository is licensed under the **MIT License** (MIT).
 See `LICENSE.txt <LICENSE.txt>`_ for rights and obligations.
 
-```
 
-```
