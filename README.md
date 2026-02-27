@@ -2,7 +2,7 @@
 ---
 
 ```markdown
-# ⚡ bayesgrid
+# bayesgrid
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python Version](https://img.shields.io/badge/python-3.8%2B-blue.svg)](https://www.python.org/downloads/)
@@ -15,12 +15,12 @@ By integrating real-world street data from **OpenStreetMap (OSM)** with **Bayesi
 
 ## Key Features
 
-* **🌍 Global Applicability**: Generate geographically accurate synthetic grids for any city, neighborhood, or bounding box worldwide using OpenStreetMap.
-* **🎲 Probabilistic & Stochastic**: Treats grid parameters as random variables, generating multiple distinct network realizations for robust Monte Carlo simulations and uncertainty quantification.
-* **⚡ 3-Phase Unbalanced Modeling**: Ensures strict topological phase-consistency (downstream phases are subsets of upstream phases) while modeling detailed unbalanced active and reactive power demands.
-* **📉 Built-in Reliability Indices**: Uniquely incorporates critical customer-centric reliability metrics—**CAIFI** (interruption frequency) and **CAIDI** (interruption duration)—directly into the synthetic grid.
-* **💾 Ready-to-Simulate Exports**: Seamlessly export generated grid ensembles into standard formats compatible with **OpenDSS** and **Pandapower**.
-* **🧠 Custom Data Training**: Use the pre-trained models (based on a massive Brazilian utility dataset) right out of the box, or train the Bayesian models on your own custom datasets.
+* **Global Applicability**: Generate geographically accurate synthetic grids for any city, neighborhood, or bounding box worldwide using OpenStreetMap.
+* **Probabilistic & Stochastic**: Treats grid parameters as random variables, generating multiple distinct network realizations for robust Monte Carlo simulations and uncertainty quantification.
+* **3-Phase Unbalanced Modeling**: Ensures strict topological phase-consistency (downstream phases are subsets of upstream phases) while modeling detailed unbalanced active and reactive power demands.
+* **Built-in Reliability Indices**: Uniquely incorporates critical customer-centric reliability metrics—**CAIFI** (interruption frequency) and **CAIDI** (interruption duration)—directly into the synthetic grid.
+* **Ready-to-Simulate Exports**: Seamlessly export generated grid ensembles into standard formats compatible with **OpenDSS** and **Pandapower**.
+* **Custom Data Training**: Use the pre-trained models (based on a massive Brazilian utility dataset) right out of the box, or train the Bayesian models on your own custom datasets.
 
 ---
 
@@ -82,7 +82,7 @@ bg.save_synthetic_network(
 
 ---
 
-## 📖 Documentation & Tutorials
+## Documentation & Tutorials
 
 A step-by-step tutorial on how to use the package can be found in the `notebook_tutorials` directory.
 
@@ -95,7 +95,7 @@ These notebooks cover:
 
 ---
 
-## 📊 Gallery: Generated Ensembles
+## Gallery: Generated Ensembles
 
 Because `bayesgrid` is probabilistic, generating multiple instances yields different, yet physically viable, phase allocations and power demands for the exact same geographic topology.
 
@@ -116,7 +116,17 @@ Because `bayesgrid` is probabilistic, generating multiple instances yields diffe
 
 ## Citation
 
-TBA
+If you use `bayesgrid` in your research, please cite our paper:
+
+```bibtex
+@article{caetano2025bayesgrid,
+  title={bayesgrid: An Open-Source Python Tool for Generating Synthetic Transmission-Distribution Grids Using Bayesian Hierarchical Models},
+  author={Caetano, Henrique O. and Gupta, Rahul K. and Maciel, Carlos D.},
+  journal={IEEE Transactions on ...}, % Update with actual journal once published
+  year={2025}
+}
+
+```
 
 *For more details on the methodology, validation, and underlying statistical framework, please refer to our related works cited in the main paper.*
 
