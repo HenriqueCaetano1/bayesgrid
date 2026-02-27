@@ -3,3 +3,10 @@ __pycache__/
 *.pkl
 dist/
 build/
+notebook_tutorials/my_new_traces
+notebook_tutorials/new_osm_synthetic_net
+notebook_tutorials/new_pp_synthetic_net
+notebook_tutorials/synthetic_net_opendss
+notebook_tutorials/synthetic_net_pandapower
+
+

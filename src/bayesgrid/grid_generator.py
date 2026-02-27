@@ -233,7 +233,7 @@ def preprocess_power_and_phase_data(df, n_discrete=10,
     n_zones = len(np.unique(hop_zone_idx))
 
     # --- 2. Encode Phases ---
-    phase_map = {'A': 0, 'B': 1, 'C': 2, 'AB': 3, 'AC': 4, 'BC': 5, 'ABC': 6}
+    phase_map = {'A': 0, 'B': 1, 'C': 2, 'AB': 3, 'CA': 4, 'BC': 5, 'ABC': 6}
     
 
     phase_category_idx = df_proc[phase_col].map(phase_map).fillna(-1).astype(int)
@@ -285,7 +285,7 @@ class BayesianPowerModel:
         self.trace = None
         self.n_train_buses = None
         self.n_zones = None
-        self.phase_categories = ['A', 'B', 'C', 'AB', 'AC', 'BC', 'ABC']
+        self.phase_categories = ['A', 'B', 'C', 'AB', 'BC', 'CA', 'ABC']
         self.phase_coords = ["A", "B", "C"]
 
         if(trace_path==None):
@@ -316,8 +316,8 @@ class BayesianPowerModel:
                         1: [1], # B->B
                         2: [2], # C-> C
                         3: [0,1,3], #AB -> (A,B,AB)
-                        4: [1,2,4], 
-                        5: [2,0,5],
+                        4: [1,2,4], #BC -> (B,C,BC) 
+                        5: [2,0,5], #CA -> (C,A,CA)
                         6: [0,1,2,3,4,5,6]
                     }
         # Pad to rectangular shape using -1 as a sentinel
@@ -458,7 +458,7 @@ class BayesianPowerModel:
         self.model = self._build_model(
             n_buses=self.n_train_buses,
             n_zones=self.n_zones,
-            hop_zone_idx_data=np.zeros(self.n_train_buses, dtype=int), # Placeholder
+            hop_zone_idx_data=np.zeros(self.n_train_buses, dtype=int), 
             phase_data=None,
             power_data=None
         )
@@ -477,7 +477,7 @@ class BayesianPowerModel:
                 posterior_predictive_full = pm.sample_posterior_predictive(
                     self.trace,
                     var_names=["phase_likelihood", "power_observed"],
-                    random_seed=random_seed
+                    random_seed=random_seed,
                 )
                 
                 posterior_predictive_new_network = posterior_predictive_full.posterior_predictive.isel(
@@ -583,8 +583,8 @@ class BayesianPowerModel:
         # This case should ideally not be hit if source is a ramification node
         return path[-1] 
 
-    def generate_consistent_data(self, new_hop_zone_idx, graph, source_bus_idx, 
-                                    random_seed=None, scan_draws=100, scan_tune=0):
+    def generate_data(self, net,new_hop_zone_idx=None,
+                                    random_seed=None, scan_draws=1000, scan_tune=0):
             """
             Generates graph-consistent synthetic phase and power data.
 
@@ -610,13 +610,42 @@ class BayesianPowerModel:
                         The *original* power samples.
             """
             # --- Validate Inputs ---
+            # --- 1. Calculate Hop Distance for all buses ---
+
+            # Keep these for the next steps
+            source_bus_idx = net.ext_grid.bus.iloc[0] # This will be 0
+            graph = pn.create_nxgraph(net)
+
+
+
+            substation_node = net.bus.name.iloc[source_bus_idx] # Get original osmnx node ID
+            if(new_hop_zone_idx==None):
+                hop_distances_new_net = {}
+                for bus_idx in graph.nodes:
+                    try:
+                        dist = nx.shortest_path_length(graph, source=source_bus_idx, target=bus_idx)
+                        hop_distances_new_net[bus_idx] = dist
+                    except (nx.NetworkXNoPath, nx.NodeNotFound):
+                        hop_distances_new_net[bus_idx] = np.nan
+
+                hop_series = pd.Series(hop_distances_new_net, index=range(len(graph.nodes)))
+                max_dist = hop_series.max()
+                hop_series = hop_series.fillna(max_dist)
+
+                # --- 3. Discretize Bus Hop Distances for POWER (10 Bins) ---
+                N_BINS_POWER_IMPD = 10
+                hop_zone_series_power = pd.cut(
+                    hop_series, bins=N_BINS_POWER_IMPD, labels=False, include_lowest=True
+                )
+                new_hop_zone_idx = hop_zone_series_power.values
+                print(f"Created {len(new_hop_zone_idx)} bus zone indices for power (10 bins).")
+
+
             if len(new_hop_zone_idx) != len(graph.nodes):
                 raise ValueError(
                     f"Length of 'new_hop_zone_idx' ({len(new_hop_zone_idx)}) does not "
                     f"match the number of nodes in 'graph' ({len(graph.nodes)})."
                 )
-            if source_bus_idx not in graph:
-                raise ValueError(f"Source bus {source_bus_idx} not found in graph.")
 
             # ====================================================================
             # --- Step 1: Run original BHM to get unconstrained probabilities ---
@@ -789,7 +818,7 @@ class BayesianPowerModel:
             # --- Step 4: Map Ramification Phases to Full Grid ---
             # ====================================================================
             with scan_model:
-                trace_scan = pm.sample(draws=100,tune=0,cores=4)
+                trace_scan = pm.sample(draws=scan_draws,tune=0,cores=4)
             print("Step 5: Mapping consistent phases to full grid...")
             # (This part is unchanged)
 
@@ -890,18 +919,19 @@ class BayesianPowerModel:
                         consistent_power_samples[i, bus, 0] = ratio_a * new_bus_total_demand
                         consistent_power_samples[i, bus, 1] = ratio_b * new_bus_total_demand
 
-                    elif phase == 4: # AC
-                        denom = original_power_bus[0] + original_power_bus[2] + 1e-9
-                        ratio_a = original_power_bus[0] / denom
-                        ratio_c = original_power_bus[2] / denom
-                        consistent_power_samples[i, bus, 0] = ratio_a * new_bus_total_demand
-                        consistent_power_samples[i, bus, 2] = ratio_c * new_bus_total_demand
-                    
-                    elif phase == 5: # BC
+                    elif phase == 4: # BC
                         denom = original_power_bus[1] + original_power_bus[2] + 1e-9
                         ratio_b = original_power_bus[1] / denom
                         ratio_c = original_power_bus[2] / denom
                         consistent_power_samples[i, bus, 1] = ratio_b * new_bus_total_demand
+                        consistent_power_samples[i, bus, 2] = ratio_c * new_bus_total_demand
+                    
+                    elif phase == 5: # CA
+
+                        denom = original_power_bus[0] + original_power_bus[2] + 1e-9
+                        ratio_a = original_power_bus[0] / denom
+                        ratio_c = original_power_bus[2] / denom
+                        consistent_power_samples[i, bus, 0] = ratio_a * new_bus_total_demand
                         consistent_power_samples[i, bus, 2] = ratio_c * new_bus_total_demand
 
                     elif phase == 6: # ABC
@@ -1230,12 +1260,39 @@ class BayesianDurationModel:
         print("Learning complete. Trace is stored in self.trace.")
         return self.trace
 
-    def generate_data(self, new_hop_zone_idx, random_seed=None):
+    def generate_data(self, new_hop_zone_idx=None, net=None, random_seed=None):
         """
         Generates synthetic interruption durations (CAIDI) for a new set of buses.
         """
         if self.trace is None:
             raise ValueError("No trace found. Please load a trace or run .learn() first.")
+        
+        if(new_hop_zone_idx==None):
+            # --- 1. Calculate Hop Distance for all buses ---
+            source_bus = net.ext_grid.bus.iloc[0] # This will be 0
+            graph = pn.create_nxgraph(net)
+
+            substation_node = net.bus.name.iloc[source_bus] # Get original osmnx node ID
+
+            hop_distances_new_net = {}
+            for bus_idx in graph.nodes:
+                try:
+                    dist = nx.shortest_path_length(graph, source=source_bus, target=bus_idx)
+                    hop_distances_new_net[bus_idx] = dist
+                except (nx.NetworkXNoPath, nx.NodeNotFound):
+                    hop_distances_new_net[bus_idx] = np.nan
+
+            hop_series = pd.Series(hop_distances_new_net, index=range(len(graph.nodes)))
+            max_dist = hop_series.max()
+            hop_series = hop_series.fillna(max_dist)
+            print(f"Max hop distance found: {max_dist}")
+
+            # --- 2. Discretize Bus Hop Distances for RELIABILITY (30 Bins) ---
+            N_BINS_RELIABILITY = 30
+            new_hop_zone_idx = pd.cut(
+                hop_series, bins=N_BINS_RELIABILITY, labels=False, include_lowest=True
+            ).values
+            print(f"Created {len(new_hop_zone_idx)} bus zone indices for reliability (30 bins).")
         
         new_hop_zone_idx = np.asarray(new_hop_zone_idx)
         n_new_buses = len(new_hop_zone_idx)
@@ -1568,7 +1625,7 @@ class BayesianFrequencyModel:
         print("Learning complete. Trace is stored in self.trace.")
         return self.trace
 
-    def generate_data(self, new_hop_zone_idx, random_seed=None):
+    def generate_data(self, net=None, new_hop_zone_idx=None, random_seed=None):
         """
         Generates synthetic failure frequencies (CAIFI/FIC) for a new set of buses.
 
@@ -1584,6 +1641,32 @@ class BayesianFrequencyModel:
         if self.trace is None:
             raise ValueError("No trace found. Please load a trace or run .learn() first.")
         
+        if(new_hop_zone_idx==None):
+            
+            # Keep these for the next steps
+            source_bus = net.ext_grid.bus.iloc[0] # This will be 0
+            graph = pn.create_nxgraph(net)
+            # --- 1. Calculate Hop Distance for all buses ---
+            hop_distances_new_net = {}
+            for bus_idx in graph.nodes:
+                try:
+                    dist = nx.shortest_path_length(graph, source=source_bus, target=bus_idx)
+                    hop_distances_new_net[bus_idx] = dist
+                except (nx.NetworkXNoPath, nx.NodeNotFound):
+                    hop_distances_new_net[bus_idx] = np.nan
+
+            hop_series = pd.Series(hop_distances_new_net, index=range(len(graph.nodes)))
+            max_dist = hop_series.max()
+            hop_series = hop_series.fillna(max_dist)
+            print(f"Max hop distance found: {max_dist}")
+
+            # --- 2. Discretize Bus Hop Distances for RELIABILITY (30 Bins) ---
+            N_BINS_RELIABILITY = 30
+            new_hop_zone_idx = pd.cut(
+                hop_series, bins=N_BINS_RELIABILITY, labels=False, include_lowest=True
+            ).values
+            print(f"Created {len(new_hop_zone_idx)} bus zone indices for reliability (30 bins).")
+                    
         new_hop_zone_idx = np.asarray(new_hop_zone_idx)
         n_new_buses = len(new_hop_zone_idx)
         
@@ -1935,7 +2018,7 @@ class BayesianImpedanceModel:
         return predicted_samples
 
 
-    def generate_data(self, new_elec_dist_idx, random_seed=None):
+    def generate_data(self, new_elec_dist_idx=None, net=None, random_seed=None):
         """
         Generates synthetic R1 and X1 values for a new set of lines.
 
@@ -1960,6 +2043,39 @@ class BayesianImpedanceModel:
         if(self.n_train_lines_x==None or self.n_zones_x==None):
             self.n_train_lines_x = self.trace_x['observed_data']['line_segment'].shape[0]
             self.n_zones_x = max(self.trace_x['constant_data']['elec_dist_idx'].values)+1
+
+        if(new_elec_dist_idx==None):
+            print("Calculating hop distances for all buses in the OSM network...")
+            # Keep these for the next steps
+            source_bus = net.ext_grid.bus.iloc[0] # This will be 0
+            graph = pn.create_nxgraph(net)
+            
+            # --- 1. Calculate Hop Distance for all buses ---
+            hop_distances_new_net = {}
+            for bus_idx in net.bus.index:
+                try:
+                    dist = nx.shortest_path_length(graph, source=source_bus, target=bus_idx)
+                    hop_distances_new_net[bus_idx] = dist
+                except (nx.NetworkXNoPath, nx.NodeNotFound):
+                    hop_distances_new_net[bus_idx] = np.nan
+
+            hop_series = pd.Series(hop_distances_new_net, index=net.bus.index)
+            max_dist = hop_series.max()
+            hop_series = hop_series.fillna(max_dist)
+            print(f"Max hop distance found: {max_dist}")
+
+            # --- 2. Discretize Bus Hop Distances for POWER (10 Bins) ---
+            N_BINS_POWER_IMPD = 10
+            hop_zone_series_power = pd.cut(
+                hop_series, bins=N_BINS_POWER_IMPD, labels=False, include_lowest=True
+            )
+            hop_zone_idx_power = hop_zone_series_power.values
+            print(f"Created {len(hop_zone_idx_power)} bus zone indices for power (10 bins).")
+
+            # --- 3. Discretize LINE Electrical Distances (10 Bins) ---
+            from_buses = net.line.from_bus
+            new_elec_dist_idx = hop_zone_series_power.loc[from_buses].values
+            print(f"Created {len(new_elec_dist_idx)} line zone indices for impedance (10 bins).")
         
         new_elec_dist_idx = np.asarray(new_elec_dist_idx)
         n_new_lines = len(new_elec_dist_idx)
@@ -2300,3 +2416,7 @@ def save_impedance_samples(gen_r, gen_x, line_index, n_samples, output_path):
     print(f"Saved '{os.path.basename(output_path)}' with {len(df)} rows.")
     
 print("Helper functions for saving are defined.")
+
+
+
+
