@@ -96,6 +96,10 @@ These notebooks cover:
 
 Because `bayesgrid` is probabilistic, generating multiple instances yields different, yet physically viable, phase allocations and power demands for the exact same geographic topology.
 
+
+<p align="center">
+<img src="docs/images/3_samples_together.png" />
+</p>
 *Three distinct phase-allocation samples generated for the exact same underlying street topology. The framework guarantees that downstream branches always respect the phase constraints of their parent nodes.*
 
 `bayesgrid` scales globally. You can generate detailed topologies for virtually any location on earth:
