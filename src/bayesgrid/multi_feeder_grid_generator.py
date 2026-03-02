@@ -208,7 +208,6 @@ def plot_multi_feeder_graph(G_forest, sub_nodes,
 
 
 
-
 def plot_detailed_integrated_system(net,draw_transformers=True,min_kv=0,show_legend=True,to_save=False):
     """
     Plots the full integrated system with specific Voltage Classes:
@@ -282,7 +281,7 @@ def plot_detailed_integrated_system(net,draw_transformers=True,min_kv=0,show_leg
                     # Connector
                     ax.plot([p1[0], p2[0]], [p1[1], p2[1]], color='black', linewidth=2)
                     # Symbol
-                    ax.scatter(mid_x, mid_y, s=400, c='purple', marker='d', edgecolors='black', zorder=4)
+                    ax.scatter(mid_x, mid_y, s=400, c='cyan', marker='d', edgecolors='black', zorder=4)
             except: pass
 
     # # --- 4. Draw Generators & Sources ---
@@ -309,7 +308,7 @@ def plot_detailed_integrated_system(net,draw_transformers=True,min_kv=0,show_leg
         Line2D([0], [0], color="#000000", lw=12.0, label='High Voltage (≥ 69 kV)'),
         Line2D([0], [0], color='#00FF00', lw=12.0, label='Medium Voltage (1-69 kV)'),
         Line2D([0], [0], color='#FF0000', lw=12.0, label='Low Voltage (< 1 kV)'),
-        Line2D([0], [0], color='purple', lw=2, linestyle=':', marker='d', markersize=16, label='Transformer'),
+        Line2D([0], [0], color='cyan', lw=2, linestyle=':', marker='d', markersize=16, label='Transformer'),
         Line2D([0], [0], color='w', marker='s', markerfacecolor='red', markeredgecolor='k', markersize=16, label='Grid Source'),
     ]
     if(show_legend):
@@ -318,7 +317,6 @@ def plot_detailed_integrated_system(net,draw_transformers=True,min_kv=0,show_leg
     if(to_save):
         plt.savefig('integrated_network.svg', format='svg', dpi=300)
     plt.show()
-
 
 
 
