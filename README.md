@@ -1,8 +1,5 @@
 
----
-
-```markdown
-# ⚡ bayesgrid
+# bayesgrid
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python Version](https://img.shields.io/badge/python-3.8%2B-blue.svg)](https://www.python.org/downloads/)
@@ -15,12 +12,12 @@ By integrating real-world street data from **OpenStreetMap (OSM)** with **Bayesi
 
 ## Key Features
 
-* **🌍 Global Applicability**: Generate geographically accurate synthetic grids for any city, neighborhood, or bounding box worldwide using OpenStreetMap.
-* **🎲 Probabilistic & Stochastic**: Treats grid parameters as random variables, generating multiple distinct network realizations for robust Monte Carlo simulations and uncertainty quantification.
-* **⚡ 3-Phase Unbalanced Modeling**: Ensures strict topological phase-consistency (downstream phases are subsets of upstream phases) while modeling detailed unbalanced active and reactive power demands.
-* **📉 Built-in Reliability Indices**: Uniquely incorporates critical customer-centric reliability metrics—**CAIFI** (interruption frequency) and **CAIDI** (interruption duration)—directly into the synthetic grid.
-* **💾 Ready-to-Simulate Exports**: Seamlessly export generated grid ensembles into standard formats compatible with **OpenDSS** and **Pandapower**.
-* **🧠 Custom Data Training**: Use the pre-trained models (based on a massive Brazilian utility dataset) right out of the box, or train the Bayesian models on your own custom datasets.
+* **Global Applicability**: Generate geographically accurate synthetic grids for any city, neighborhood, or bounding box worldwide using OpenStreetMap.
+* **Probabilistic & Stochastic**: Treats grid parameters as random variables, generating multiple distinct network realizations for robust Monte Carlo simulations and uncertainty quantification.
+* **3-Phase Unbalanced Modeling**: Ensures strict topological phase-consistency (downstream phases are subsets of upstream phases) while modeling detailed unbalanced active and reactive power demands.
+* **Built-in Reliability Indices**: Uniquely incorporates critical customer-centric reliability metrics—**CAIFI** (interruption frequency) and **CAIDI** (interruption duration)—directly into the synthetic grid.
+* **Ready-to-Simulate Exports**: Seamlessly export generated grid ensembles into standard formats compatible with **OpenDSS** and **Pandapower**.
+* **Custom Data Training**: Use the pre-trained models (based on a massive Brazilian utility dataset) right out of the box, or train the Bayesian models on your own custom datasets.
 
 ---
 
@@ -81,8 +78,23 @@ bg.save_synthetic_network(
 ```
 
 ---
+### Comprehensive Multi-Feeder & Transmission Modeling
 
-## 📖 Documentation & Tutorials
+The script above generates a complete, interconnected power system. By providing a geographic center point (e.g., coordinates `-23.649, -46.702`) and a radius, `bayesgrid` leverages pre-trained priors to automatically estimate a full-scale grid topology. The tool accounts for **multiple feeders** and can integrated with the **transmission level** grid:
+
+<p align="center">
+  <img src="docs/images/sao_paulo_voronoi.png" width="32%" />
+  <img src="docs/images/sao_paulo_voltage_level.png" width="32%" />
+  <img src="docs/images/sao_paulo_complete.png" width="32%" />
+</p>
+
+* **Multi-Feeder Topology (Left):** Black dots denote primary substations. The framework uses a Voronoi-based algorithm to partition the region into distinct service areas (represented by different colors), accurately modeling the multi-feeder nature of real urban grids.
+* **Distribution Level (Center):** Automated spatial placement of distribution-level transformers and allocation of voltage levels across the network.
+* **Transmission Integration (Right):** The generated distribution system is seamlessly integrated with the upstream high-voltage transmission network, enabling comprehensive macro-level stability and planning studies.
+
+*(Note: While the tool generates the entire interconnected topology, downstream visualizations and probabilistic analyses can be easily filtered to focus on a single feeder for high-resolution studies.)*
+
+## Documentation & Tutorials
 
 A step-by-step tutorial on how to use the package can be found in the `notebook_tutorials` directory.
 
@@ -95,13 +107,18 @@ These notebooks cover:
 
 ---
 
-## 📊 Gallery: Generated Ensembles
+## Gallery: Generated Ensembles
 
-Because `bayesgrid` is probabilistic, generating multiple instances yields different, yet physically viable, phase allocations and power demands for the exact same geographic topology.
+Because `bayesgrid` is probabilistic, generating multiple instances yields different, yet physically viable, phase allocations and power demands for the exact same geographic topology. Below are three distinct phase-allocation samples generated for the exact same underlying street topology. The framework guarantees that downstream branches always respect the phase constraints of their parent nodes.
 
-*Three distinct phase-allocation samples generated for the exact same underlying street topology. The framework guarantees that downstream branches always respect the phase constraints of their parent nodes.*
 
-`bayesgrid` scales globally. You can generate detailed topologies for virtually any location on earth:
+<p align="center">
+<img src="docs/images/3_samples_together.png" />
+</p>
+
+
+`bayesgrid` scales globally. You can generate detailed topologies for virtually any location on earth. Below are topologies generated for São Paulo, Los Angeles, Madrid, New York, and Tokyo.
+
 
 <p align="center">
 <img src="docs/images/sao_paulo_voronoi.png" width="19%" />
@@ -110,15 +127,13 @@ Because `bayesgrid` is probabilistic, generating multiple instances yields diffe
 <img src="docs/images/new_york_voronoi.png" width="19%" />
 <img src="docs/images/tokyo_voronoi.png" width="19%" />
 </p>
-*Topologies generated for São Paulo, Los Angeles, Madrid, New York, and Tokyo.*
+
 
 ---
 
 ## Citation
 
 TBA
-
-*For more details on the methodology, validation, and underlying statistical framework, please refer to our related works cited in the main paper.*
 
 ---
 
@@ -127,6 +142,4 @@ TBA
 The code in this repository is licensed under the **MIT License** (MIT).
 See `LICENSE.txt <LICENSE.txt>`_ for rights and obligations.
 
-```
 
-```
