@@ -619,7 +619,7 @@ class BayesianPowerModel:
 
 
             substation_node = net.bus.name.iloc[source_bus_idx] # Get original osmnx node ID
-            if(new_hop_zone_idx==None):
+            if(new_hop_zone_idx is None):
                 hop_distances_new_net = {}
                 for bus_idx in graph.nodes:
                     try:
@@ -1260,14 +1260,14 @@ class BayesianDurationModel:
         print("Learning complete. Trace is stored in self.trace.")
         return self.trace
 
-    def generate_data(self, new_hop_zone_idx=None, net=None, random_seed=None):
+    def generate_data(self, net=None, new_hop_zone_idx=None, random_seed=None):
         """
         Generates synthetic interruption durations (CAIDI) for a new set of buses.
         """
         if self.trace is None:
             raise ValueError("No trace found. Please load a trace or run .learn() first.")
         
-        if(new_hop_zone_idx==None):
+        if(new_hop_zone_idx is None):
             # --- 1. Calculate Hop Distance for all buses ---
             source_bus = net.ext_grid.bus.iloc[0] # This will be 0
             graph = pn.create_nxgraph(net)
@@ -1641,7 +1641,7 @@ class BayesianFrequencyModel:
         if self.trace is None:
             raise ValueError("No trace found. Please load a trace or run .learn() first.")
         
-        if(new_hop_zone_idx==None):
+        if(new_hop_zone_idx is None):
             
             # Keep these for the next steps
             source_bus = net.ext_grid.bus.iloc[0] # This will be 0
@@ -2044,7 +2044,7 @@ class BayesianImpedanceModel:
             self.n_train_lines_x = self.trace_x['observed_data']['line_segment'].shape[0]
             self.n_zones_x = max(self.trace_x['constant_data']['elec_dist_idx'].values)+1
 
-        if(new_elec_dist_idx==None):
+        if(new_elec_dist_idx is None):
             print("Calculating hop distances for all buses in the OSM network...")
             # Keep these for the next steps
             source_bus = net.ext_grid.bus.iloc[0] # This will be 0

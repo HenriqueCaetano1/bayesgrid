@@ -1199,13 +1199,12 @@ import numpy as np
 import pandas as pd
 import pandapower as pp
 import pandapower.topology
-from BayesGrid.src.bayesgrid.grid_generator import (
+
+from .grid_generator import (
     BayesianPowerModel, 
     BayesianDurationModel, 
     BayesianFrequencyModel, 
-    BayesianImpedanceModel
-)
-from BayesGrid.src.bayesgrid.grid_generator import (
+    BayesianImpedanceModel,
     save_power_phase_samples, 
     save_bus_metric_samples, 
     save_impedance_samples

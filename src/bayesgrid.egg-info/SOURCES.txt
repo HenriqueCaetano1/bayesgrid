@@ -1,10 +1,11 @@
 LICENSE.txt
-README.rst
+README.md
 pyproject.toml
 src/bayesgrid/__init__.py
 src/bayesgrid/_registry.py
 src/bayesgrid/exporters.py
 src/bayesgrid/grid_generator.py
+src/bayesgrid/multi_feeder_grid_generator.py
 src/bayesgrid/opendss_helpers.py
 src/bayesgrid.egg-info/PKG-INFO
 src/bayesgrid.egg-info/SOURCES.txt
