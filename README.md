@@ -110,7 +110,7 @@ bdm = bg.BayesianDurationModel()
 # Step 2: Generate Topology from OpenStreetMap 
 graph, hop_zone_list, source_bus = bg.create_osm_pandapower_network(
     query_type="address",
-    query_address="Sao Paulo, Brazil",
+    query="Sao Paulo, Brazil",
     dist=1500
 )
 
@@ -128,7 +128,6 @@ bg.save_synthetic_network(
     format="opendss", 
     output_dir="./synthetic_grids"
 )
-
 ```
 
 ---
@@ -187,7 +186,7 @@ Because `bayesgrid` is probabilistic, generating multiple instances yields diffe
 
 ## Citation
 
-TBA
+Caetano, Henrique O., Rahul K. Gupta, and Carlos D. Maciel. "bayesgrid: An Open-Source Python Tool for Generating Probabilistic Synthetic Transmission-Distribution Grids Using Bayesian Hierarchical Models." arXiv preprint arXiv:2603.04393 (2026).
 
 ---
 
