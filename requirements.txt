@@ -9,3 +9,4 @@ pymc==5.23.0
 pytensor==2.31.4
 scipy==1.12.0
 xarray==2025.6.1
+h5py==3.16.0
