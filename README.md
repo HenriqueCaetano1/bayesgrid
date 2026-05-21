@@ -39,6 +39,60 @@ The tool abstracts complex Bayesian statistics into an accessible API with 5 mai
 
 ---
 
+## Installation
+
+We recommend installing `bayesgrid` inside a virtual environment to manage dependencies cleanly. Below is an example setup using `conda`:
+
+
+### 1. Create and activate a new virtual environment
+```bash
+conda create -n bayes_grid_venv python=3.11
+```
+```bash
+conda activate bayes_grid_venv
+```
+
+### 2. Clone the repository
+```bash
+git clone https://github.com/HenriqueCaetano1/bayesgrid
+```
+
+### 3. Navigate into the project directory
+```bash
+cd bayesgrid
+```
+
+### 4. Install the package in editable/development mode
+```bash
+pip install -e .
+```
+
+### Note: If you get errors related to the cairo library, this may be due to your path variables. Here is a workaround (do this while within the bayesgrid folder):
+### Delete your current venv
+```bash
+conda deactivate
+```
+```bash
+conda env remove -n bayes_grid_venv
+```
+
+### Recreate the venv
+```bash
+conda create -n bayes_grid_venv python=3.11
+```
+```bash
+conda activate bayes_grid_venv
+```
+
+### Install cairo
+```bash
+conda install -c conda-forge cairo cairocffi pycairo
+```
+
+### Reinstall bayesgrid
+```bash
+pip install -e .
+```
 ## Quick Start
 
 Creating a full synthetic grid ensemble from scratch requires just a few lines of code. The following example generates 1,000 distinct realizations for a 1.5 km radius around São Paulo, Brazil.
